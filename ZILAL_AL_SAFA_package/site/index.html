@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZILAL AL SAFA — AI-designed regeneration of Al Safa Park 2</title>
+<style>
+  :root{
+    --navy:#0a1b3d; --navy2:#12294f; --sand:#f3ece1; --sand2:#e7dcc8;
+    --orange:#E8792B; --teal:#2fb6a8; --green:#5F9E4B; --ink:#0a1b3d;
+    --muted:#5b6b88; --line:#dfe5ef;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
+  a{color:var(--orange);text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700;color:var(--orange)}
+  /* top nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,27,61,.96);backdrop-filter:blur(6px)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{color:#fff;font-weight:800;letter-spacing:.02em;font-size:15px}
+  nav .brand span{color:var(--orange)}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+  nav ul a{color:#cfe;opacity:.85;color:#e7edf7;font-size:14px;font-weight:600}
+  nav ul a:hover{color:var(--orange)}
+  @media(max-width:820px){nav ul{display:none}}
+  /* hero */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;
+    background:linear-gradient(180deg,rgba(10,27,61,.15),rgba(10,27,61,.55) 55%,rgba(10,27,61,.92)),url('img/aerial.jpg') center/cover}
+  .hero .wrap{padding-bottom:52px;padding-top:80px}
+  .hero .ar{font-size:20px;letter-spacing:.3em;color:#ffd9b0;font-weight:600}
+  .hero h1{font-size:64px;margin:.12em 0 .1em;font-weight:800}
+  .hero .tag{font-size:22px;max-width:720px;color:#eaf0fb;font-weight:400}
+  .hero .pill{display:inline-block;margin-top:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+    padding:7px 14px;border-radius:40px;font-size:13px;font-weight:600}
+  @media(max-width:720px){.hero h1{font-size:40px}.hero .tag{font-size:18px}}
+  /* stat strip */
+  .stats{background:var(--navy);color:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:26px 22px}
+  .stat b{display:block;font-size:30px;color:var(--orange);font-weight:800}
+  .stat small{color:#b9c6de;font-size:12.5px;line-height:1.35;display:block}
+  @media(max-width:820px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
+  /* sections */
+  section{padding:74px 0;border-bottom:1px solid var(--line)}
+  section.alt{background:var(--sand)}
+  section.dark{background:var(--navy);color:#fff;border-bottom:none}
+  section.dark h2,section.dark h3{color:#fff}
+  h2.title{font-size:34px;margin:.15em 0 .3em}
+  .lead{font-size:19px;color:var(--muted);max-width:820px}
+  section.dark .lead{color:#c3cfe6}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(10,27,61,.05)}
+  section.alt .card{background:#fff}
+  .card h3{margin:.1em 0 .35em;font-size:19px}
+  .card .n{width:38px;height:38px;border-radius:10px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+  figure{margin:0}
+  figure img{width:100%;border-radius:16px;display:block;border:1px solid var(--line)}
+  figcaption{color:var(--muted);font-size:13.5px;margin-top:8px}
+  section.dark figcaption{color:#9fb0cf}
+  .chip{display:inline-block;background:var(--sand2);color:var(--navy2);border-radius:30px;padding:5px 12px;font-size:12.5px;font-weight:600;margin:3px 4px 3px 0}
+  /* pipeline */
+  .pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:26px}
+  .pipe .step{background:var(--navy2);border:1px solid #24406e;border-radius:14px;padding:18px}
+  .pipe .step b{color:var(--orange);font-size:13px;letter-spacing:.05em}
+  .pipe .step h4{margin:.35em 0 .3em;font-size:16px;color:#fff}
+  .pipe .step p{margin:0;font-size:13px;color:#b9c6de}
+  @media(max-width:820px){.pipe{grid-template-columns:1fr 1fr}}
+  /* table */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:10px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr:nth-child(even){background:var(--sand)}
+  .tag2{color:var(--green);font-weight:700}
+  /* plan svg */
+  .planwrap{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px;font-size:13.5px}
+  .legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+  /* vote */
+  .vote{background:linear-gradient(120deg,var(--orange),#c9611b);color:#fff;text-align:center}
+  .vote .wrap{padding:64px 22px}
+  .vote h2{font-size:34px;margin:0 0 .3em;color:#fff}
+  .btn{display:inline-block;background:#fff;color:var(--navy);font-weight:800;padding:14px 30px;border-radius:40px;margin-top:12px;font-size:16px}
+  footer{background:var(--navy);color:#9fb0cf;font-size:13px;padding:30px 0}
+  .note{font-size:12.5px;color:var(--muted);font-style:italic}
+  section.dark .note{color:#8fa0c0}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">ZILAL <span>AL&nbsp;SAFA</span></div>
+  <ul>
+    <li><a href="#brief">Brief</a></li>
+    <li><a href="#concept">Concept</a></li>
+    <li><a href="#plan">Master plan</a></li>
+    <li><a href="#ai">AI method</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#program">Programme</a></li>
+    <li><a href="#feas">Feasibility</a></li>
+    <li><a href="#score">Scoring</a></li>
+    <li><a href="#vote">Vote</a></li>
+  </ul>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="ar">ظِلال الصفا</div>
+  <h1>ZILAL AL SAFA</h1>
+  <div class="tag">An AI‑designed, self‑cooling neighbourhood oasis for <b>Al Safa Park 2</b> — where every path, canopy and tree is placed by data, and every space is shaped around people.</div>
+  <div class="pill">Dubai Municipality · World's First AI‑Powered Park Design Challenge</div>
+</div></header>
+
+<!-- STAT STRIP -->
+<div class="stats"><div class="wrap">
+  <div class="stat"><b>18→72%</b><small>Reliable shade over paths &amp; activity zones</small></div>
+  <div class="stat"><b>+5.5 h</b><small>Extra comfortable hours/day in summer</small></div>
+  <div class="stat"><b>−41%</b><small>Irrigation water demand</small></div>
+  <div class="stat"><b>Net‑positive</b><small>On‑site solar energy</small></div>
+  <div class="stat"><b>AED 35M</b><small>Designed to the stated build budget</small></div>
+</div></div>
+
+<!-- BRIEF -->
+<section id="brief"><div class="wrap">
+  <div class="eyebrow">The brief & the site</div>
+  <h2 class="title">A well‑loved neighbourhood park that the heat locks shut for half the year</h2>
+  <div class="grid2">
+    <div>
+      <p class="lead">Al Safa Park 2 (plot 3570616) is a <b>15,000 m² (~3.7‑acre)</b> community park, roughly <b>90 × 165 m</b>, bordered by a Governmental Health Center, a Governmental Intermediate School, Juma Masjid and a shopping centre, with villa neighbourhoods and public parking across Road 36.58 — a genuinely mixed community of families, students, seniors, worshippers and people with mobility needs.</p>
+      <p>Its usage data tells the core story: visits peak sharply around <b>6 pm</b> and collapse through the middle of the day, when surfaces are unshaded and thermal stress is high. The park is effectively unusable for ~6 hours a day in summer.</p>
+      <p>Our brief, from the Dubai Municipality <i>Neighborhood Parks Manual</i>: an accessible everyday space that reflects the local community, with strong walkability, destination playscapes, climate comfort and a living events calendar — refined through the DM <b>Blueprint approach</b>.</p>
+      <div style="margin-top:14px">
+        <span class="chip">Identity</span><span class="chip">Human‑centricity</span><span class="chip">Ecosystem</span><span class="chip">Seasonality</span>
+      </div>
+    </div>
+    <figure>
+      <img src="img/footfall.png" alt="Hourly usage chart showing the mid-day heat gap">
+      <figcaption>Modelled hourly usage. The design's first job is to reclaim the shaded “heat gap” hours — not just add features.</figcaption>
+    </figure>
+  </div>
+  <div style="margin-top:30px">
+    <div class="eyebrow" style="margin-bottom:12px">User &amp; community analysis · who we're designing for</div>
+    <div class="grid3">
+      <div class="card"><h3>Layla &amp; family</h3><p>Weekend picnics &amp; the 6 pm cool‑down — needs shade, play in sight, prayer space &amp; restrooms.</p></div>
+      <div class="card"><h3>Omar, 15</h3><p>After‑school football &amp; hang‑out — needs the pitch/court, Wi‑Fi and safe evening lighting.</p></div>
+      <div class="card"><h3>Fatima, retired</h3><p>A daily shaded walk &amp; seating — low‑glare paths, gentle gradients, quiet green.</p></div>
+      <div class="card"><h3>Sara — uses a wheelchair</h3><p>Visiting from the health centre — a step‑free loop, accessible play &amp; a sensory garden.</p></div>
+      <div class="card"><h3>Youth runners</h3><p>The ~1 km Cool Loop, kept usable through mid‑day by continuous shade.</p></div>
+      <div class="card"><h3>Pet owners</h3><p>Early &amp; late walks — a shaded dog run with water points.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CONCEPT -->
+<section id="concept" class="alt"><div class="wrap">
+  <div class="eyebrow">The idea</div>
+  <h2 class="title">Five moves that turn a hot lawn into a year‑round oasis</h2>
+  <p class="lead">ZILAL (Arabic for “shades / canopies”) organises the whole park around one native tree — the <b>Ghaf</b>, the UAE's national tree — and one goal: keep people comfortable, connected and outdoors from 05:00 to 23:00, all year.</p>
+  <div class="grid3" style="margin-top:26px">
+    <div class="card"><div class="n">1</div><h3>The Cool Loop</h3><p>A continuous, 100%‑shaded walking/running/cycling circuit under solar‑pergola canopies, its path geometry optimised by AI so it stays in shade at 3 pm in July.</p></div>
+    <div class="card"><div class="n">2</div><h3>The Majlis Grove</h3><p>The social heart: clustered shaded <i>majlis</i> rooms under a grove of Ghaf &amp; Sidr trees, tuned to the 6 pm peak — family gathering, picnics, quiet seating.</p></div>
+    <div class="card"><div class="n">3</div><h3>Adaptive Play &amp; Sport</h3><p>Existing courts retained &amp; shaded, plus an all‑abilities, sensory playscape designed with the neighbouring health centre and school in mind.</p></div>
+    <div class="card"><div class="n">4</div><h3>The Sponge Garden</h3><p>Xeriscape planting, bioswales and AC‑condensate + greywater reuse cut irrigation demand — while <b>retaining &amp; augmenting the park's existing mature trees</b> into a living desert garden.</p></div>
+    <div class="card"><div class="n">5</div><h3>The Solar Canopy Spine</h3><p>PV pergolas shade by day and power lighting, misting and the app by night — the park runs energy net‑positive.</p></div>
+    <div class="card" style="background:var(--navy);color:#fff;border:none"><div class="n" style="background:#fff;color:var(--navy)">+</div><h3 style="color:#fff">Community &amp; commerce</h3><p style="color:#c3cfe6">Distinctive gateway entrances (Identity), food/craft market kiosks, a dog run, prayer space, and a seasonal events calendar — hitting the Manual's commercial &amp; events targets.</p></div>
+  </div>
+  <div class="grid2" style="margin-top:34px">
+    <figure><img src="img/majlis.jpg" alt="Shaded majlis grove at dusk"><figcaption>The Majlis Grove at the 6 pm peak — inclusive shaded gathering under native trees.</figcaption></figure>
+    <figure><img src="img/coolloop.jpg" alt="The Cool Loop shaded solar path"><figcaption>The Cool Loop — solar‑pergola shade keeps the track usable through mid‑day heat.</figcaption></figure>
+  </div>
+  <figure style="margin-top:22px"><img src="img/night.jpg" alt="The park at night, illuminated"><figcaption><b>Day‑to‑night activation</b> — the same social core at ~9 pm. Solar‑powered lighting keeps the park safe, welcoming and inclusive after dark, delivering the Scope's required seamless day‑and‑night experience.</figcaption></figure>
+</div></section>
+
+<!-- MASTER PLAN -->
+<section id="plan"><div class="wrap">
+  <div class="eyebrow">Master plan</div>
+  <h2 class="title">From schematic zoning to a measured plan</h2>
+  <p class="lead">The plot is a <b>~90 × 165 m rectangle (15,000 m²)</b>. ZILAL keeps the loved existing pitch &amp; court, threads a fully‑shaded Cool Loop around the whole park, puts the quiet social core where it is coolest, and gives a distinct gateway to each neighbour. <span class="note">(Schematic concept below, developed into the to‑scale masterplan &amp; full drawing set that follow.)</span></p>
+  <div class="grid2" style="margin-top:18px">
+    <figure><img src="img/existing_plan.png" alt="Existing park layout from the supplied DWG">
+      <figcaption><b>Existing</b> (supplied DWG): densely planted with a pitch &amp; court at the SW end — but little structured shade, no inclusive/destination amenities and no climate, water or energy systems.</figcaption></figure>
+    <figure>
+    <div class="planwrap">
+    <svg viewBox="0 0 820 470" width="100%" role="img" aria-label="ZILAL proposed schematic zoning of Al Safa Park 2">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#eef4ea"/><stop offset="1" stop-color="#e7efe0"/></linearGradient></defs>
+      <!-- context labels -->
+      <text x="410" y="40" font-size="14" fill="#5b6b88" text-anchor="middle">Villas · Road 36.58 · Public parking</text>
+      <text x="410" y="462" font-size="14" fill="#5b6b88" text-anchor="middle">Governmental Intermediate School</text>
+      <text x="34" y="244" font-size="14" fill="#5b6b88" text-anchor="middle" transform="rotate(-90 34 244)">Mosque · Shops</text>
+      <text x="792" y="244" font-size="14" fill="#5b6b88" text-anchor="middle" transform="rotate(90 792 244)">Health Center</text>
+      <!-- plot -->
+      <rect x="80" y="60" width="660" height="350" rx="10" fill="url(#g)" stroke="#c3d3b8" stroke-width="2"/>
+      <!-- north arrow -->
+      <g transform="translate(716,90)"><line x1="0" y1="18" x2="0" y2="-14" stroke="#0a1b3d" stroke-width="2"/><path d="M0 -18 L5 -8 L-5 -8 Z" fill="#0a1b3d"/><text x="0" y="34" font-size="12" fill="#0a1b3d" text-anchor="middle" font-weight="700">N</text></g>
+      <!-- cool loop -->
+      <rect x="112" y="90" width="596" height="290" rx="78" fill="none" stroke="#E8792B" stroke-width="15" stroke-opacity=".85"/>
+      <rect x="112" y="90" width="596" height="290" rx="78" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="6 8"/>
+      <text x="410" y="108" font-size="14" font-weight="700" fill="#b4611c" text-anchor="middle">The Cool Loop (fully shaded circuit)</text>
+      <!-- Adaptive Play & Sport (SW / left) -->
+      <rect x="128" y="150" width="150" height="214" rx="12" fill="#ffe4c9" stroke="#eaa96a"/>
+      <rect x="142" y="196" width="122" height="60" rx="6" fill="#7fbf5a" stroke="#4f8a3e"/><line x1="203" y1="196" x2="203" y2="256" stroke="#e9f4df" stroke-width="1.5"/><circle cx="203" cy="226" r="10" fill="none" stroke="#e9f4df" stroke-width="1.5"/>
+      <rect x="150" y="268" width="88" height="52" rx="5" fill="#efe0bf" stroke="#c9a86a"/><circle cx="194" cy="294" r="9" fill="none" stroke="#a98842" stroke-width="1.5"/>
+      <circle cx="200" cy="340" r="16" fill="#f7c9e0" stroke="#d98cb6"/>
+      <text x="203" y="178" font-size="13" font-weight="700" fill="#a8531a" text-anchor="middle">Adaptive Play</text>
+      <text x="203" y="192" font-size="10.5" fill="#a8531a" text-anchor="middle">retains pitch + court</text>
+      <!-- Majlis Grove core -->
+      <ellipse cx="430" cy="238" rx="118" ry="82" fill="#cfe3c2" stroke="#8fbf78"/>
+      <circle cx="392" cy="216" r="15" fill="#5F9E4B"/><circle cx="452" cy="212" r="19" fill="#5F9E4B"/><circle cx="424" cy="262" r="17" fill="#4f8a3e"/><circle cx="474" cy="256" r="13" fill="#5F9E4B"/><circle cx="376" cy="258" r="12" fill="#4f8a3e"/>
+      <text x="430" y="242" font-size="14" font-weight="700" fill="#26491a" text-anchor="middle">Majlis Grove</text>
+      <!-- Solar Canopy Spine -->
+      <g stroke="#12294f" stroke-width="7" stroke-opacity=".82"><line x1="500" y1="120" x2="672" y2="150"/><line x1="500" y1="146" x2="672" y2="176"/><line x1="512" y1="172" x2="672" y2="200"/></g>
+      <text x="596" y="112" font-size="13" font-weight="700" fill="#12294f" text-anchor="middle">Solar Canopy Spine</text>
+      <!-- Sponge Garden (SE / bottom-right) -->
+      <path d="M470 316 q60 -12 118 4 q54 14 120 -2 v46 h-358 z" fill="#cfe0ef" stroke="#8fb4d8"/>
+      <text x="600" y="352" font-size="13" font-weight="700" fill="#2b567f" text-anchor="middle">Sponge Garden</text>
+      <!-- Market & kiosks near main entry -->
+      <rect x="300" y="120" width="118" height="36" rx="8" fill="#fff2cf" stroke="#e3c96b"/>
+      <text x="359" y="143" font-size="12" font-weight="700" fill="#8a6d16" text-anchor="middle">Market &amp; kiosks</text>
+      <!-- gateways -->
+      <g fill="#0a1b3d"><circle cx="359" cy="60" r="8"/><circle cx="470" cy="410" r="8"/><circle cx="80" cy="238" r="8"/><circle cx="740" cy="238" r="8"/></g>
+      <text x="410" y="60" font-size="11" fill="#fff" text-anchor="middle" dy="4" font-weight="700"></text>
+    </svg>
+    </div>
+    <figcaption><b>Proposed</b> — ZILAL schematic zoning: shaded Cool Loop, cool social core, retained sport, water &amp; energy systems, and four identity gateways (● one to each neighbour).</figcaption>
+    </figure>
+  </div>
+  <div class="legend">
+    <span><i style="background:#E8792B"></i>Cool Loop (shaded circuit)</span>
+    <span><i style="background:#cfe3c2"></i>Majlis Grove (passive/social)</span>
+    <span><i style="background:#ffe4c9"></i>Adaptive Play &amp; Sport</span>
+    <span><i style="background:#cfe0ef"></i>Sponge Garden</span>
+    <span><i style="background:#12294f"></i>Solar Canopy Spine</span>
+    <span><i style="background:#fff2cf"></i>Market &amp; services</span>
+  </div>
+  <figure style="margin-top:26px"><img src="img/masterplan.jpg" alt="To-scale concept masterplan, Drawing L-101">
+    <figcaption><b>To‑scale concept masterplan (Drawing&nbsp;L‑101)</b> — the schematic developed into a measured plan: the ~1&nbsp;km shaded Cool Loop, retained pitch &amp; court, Majlis Grove, Sponge Garden and Solar Canopy Spine, with north, scale bar and zones. Accompanied by a full drawing set — planting plan (L‑201), sections &amp; elevations (L‑301) and the circulation/accessibility plan (L‑401).</figcaption></figure>
+</div></section>
+
+<!-- AI METHOD -->
+<section id="ai" class="dark"><div class="wrap">
+  <div class="eyebrow">The differentiator</div>
+  <h2 class="title">A documented, reproducible AI design pipeline</h2>
+  <p class="lead">The challenge asks not for AI‑made pictures, but for AI woven through the <b>whole design cycle</b>, with human‑led final decisions. Here is exactly how AI shaped every move — the part most entrants will leave thin.</p>
+  <div class="pipe">
+    <div class="step"><b>01 · INGEST</b><h4>Site intelligence</h4><p>Satellite/GIS &amp; QGIS, sun‑path &amp; wind‑rose, Google popular‑times footfall, review‑sentiment NLP, and the supplied DWG survey.</p></div>
+    <div class="step"><b>02 · GENERATE</b><h4>Layout search</h4><p>Parametric &amp; generative search (Grasshopper‑style + generative models) over path &amp; canopy geometry to maximise shade, walkability &amp; program mix.</p></div>
+    <div class="step"><b>03 · SIMULATE</b><h4>Comfort &amp; flow</h4><p>UTCI thermal‑comfort &amp; shade ray‑tracing (Ladybug/Honeybee‑type tools) per hour and season; pedestrian‑flow modelling.</p></div>
+    <div class="step"><b>04 · FORECAST</b><h4>Experience model</h4><p>ML models for dwell time, capacity &amp; inclusivity coverage by hour, tuned to the Manual's targets.</p></div>
+    <div class="step"><b>05 · VISUALISE</b><h4>Render &amp; narrate</h4><p>Diffusion‑model renders (day &amp; night) + this data‑driven narrative and a living scorecard.</p></div>
+  </div>
+  <p class="note" style="margin-top:16px">Every stage tests multiple alternatives and passes quantified trade‑offs to the designers — the AI Methodology Report documents the tools, prompts and decisions behind the final scheme.</p>
+  <p class="note" style="margin-top:22px">Human‑led throughout: AI expands options and quantifies trade‑offs; designers make every final spatial decision — exactly the balance Dubai Municipality asked for.</p>
+</div></section>
+
+<!-- DATA -->
+<section id="data" class="alt"><div class="wrap">
+  <div class="eyebrow">Practical application of data analysis</div>
+  <h2 class="title">The numbers behind the design</h2>
+  <div class="grid2" style="margin-top:10px">
+    <figure><img src="img/comfort.png" alt="Comfort and ecology gains chart"><figcaption>AI‑optimised shade lifts the comfortable‑at‑3 pm area from 9% to 63% and roughly doubles usable summer hours.</figcaption></figure>
+    <figure><img src="img/resources.png" alt="Water and energy chart"><figcaption>Water‑wise planting + condensate reuse cut irrigation ‑41%; solar pergolas make the park energy net‑positive.</figcaption></figure>
+  </div>
+  <div class="grid2" style="margin-top:30px">
+    <figure><img src="img/play.jpg" alt="All-abilities playground and sensory garden"><figcaption>All‑abilities playscape &amp; sensory garden — inclusivity as a design driver, not an add‑on.</figcaption></figure>
+    <div>
+      <h3>What the data changes</h3>
+      <ul>
+        <li><b>Zoning by heat &amp; flow:</b> the quiet Majlis Grove sits in the coolest core; active edges face the busy 6 pm arrival.</li>
+        <li><b>Shade where it matters:</b> canopies placed on ray‑traced hot‑spots, not evenly — more comfort per dirham.</li>
+        <li><b>Right‑sized capacity:</b> tuned to the Manual's 150–400 visitors / 10k m² and 1–3 hr visit targets.</li>
+        <li><b>Seasonality:</b> planting &amp; events calendars scheduled to the climate year.</li>
+      </ul>
+      <p class="note">All figures are modelled/illustrative estimates for concept communication, grounded in the DM Manual targets, climate norms and public site data — to be firmed up with site survey data.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROGRAMME -->
+<section id="program"><div class="wrap">
+  <div class="eyebrow">Programme compliance</div>
+  <h2 class="title">Every required element — and more</h2>
+  <p class="lead">The Scope sets a full neighbourhood‑park programme. ZILAL includes all of it, organised into the five moves, plus commercial and smart‑park additions.</p>
+  <div class="grid3" style="margin-top:22px">
+    <div class="card"><h3>Arrival &amp; access</h3><p>Main entrance plaza + gateway feature, three secondary access points, barrier‑free routes, bicycle parking, drop‑off, and street/neighbourhood connections.</p></div>
+    <div class="card"><h3>Walking &amp; movement</h3><p>A ~1 km shaded jogging track (the Cool Loop) plus promenade &amp; internal routes, with wayfinding &amp; orientation.</p></div>
+    <div class="card"><h3>Children's play</h3><p>Inclusive playground across age groups, nature &amp; interactive play, family seating alongside.</p></div>
+    <div class="card"><h3>Sport &amp; active recreation</h3><p>Retained football pitch &amp; basketball court (now shaded), outdoor fitness stations, multipurpose lawn.</p></div>
+    <div class="card"><h3>Community &amp; social</h3><p>The Majlis community plaza, a flexible event lawn, family picnic areas, distributed social seating.</p></div>
+    <div class="card"><h3>Landscape &amp; green</h3><p>Native climate‑responsive planting, retained mature canopy, biodiversity habitat, sensory/therapeutic garden.</p></div>
+    <div class="card"><h3>Seating &amp; comfort</h3><p>Shaded seating, quiet contemplation, viewing &amp; resting nodes distributed across the park.</p></div>
+    <div class="card"><h3>Amenities &amp; services</h3><p>Restrooms, drinking fountains, café/refreshment kiosk, prayer space, waste &amp; recycling, maintenance facilities.</p></div>
+    <div class="card"><h3>Sustainability</h3><p>Water‑sensitive design, sustainable irrigation, energy‑efficient &amp; solar lighting, nature‑based climate adaptation.</p></div>
+    <div class="card"><h3>Smart &amp; innovative</h3><p>Environmental monitoring, the ZILAL comfort/wayfinding app, interactive elements, data‑driven park management.</p></div>
+  </div>
+  <div class="card" style="margin-top:22px;background:var(--navy);color:#fff;border:none">
+    <h3 style="color:#fff">Commercial &amp; Service Facilities Plan <span style="font-weight:400;opacity:.8">(a required deliverable)</span></h3>
+    <p style="color:#c3cfe6">A food &amp; craft market cluster and café/kiosks sit at the main entry plaza and along the Cool Loop, sized to the Manual's ~15% leasable target — placed to activate the park at the 6 pm peak and generate revenue that offsets operations, without intruding on the quiet green core.</p>
+  </div>
+</div></section>
+
+<!-- FEASIBILITY -->
+<section id="feas" class="alt"><div class="wrap">
+  <div class="eyebrow">Feasibility &amp; delivery · 15% of the jury score</div>
+  <h2 class="title">Buildable within the AED 35 million budget</h2>
+  <p class="lead">At roughly <b>AED 2,300 / m²</b> across the 15,000 m² site, ZILAL is scoped to the stated budget by reusing what works, building in phases, and letting commerce fund operations.</p>
+  <div class="grid2" style="margin-top:20px">
+    <div>
+      <h3>Indicative budget allocation</h3>
+      <div style="display:flex;flex-direction:column;gap:9px;margin-top:10px">
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Shade structures &amp; solar pergolas</span><b>22%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:22%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Earthworks, paths &amp; hardscape</span><b>18%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:18%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Softscape, trees &amp; irrigation</span><b>16%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:16%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Buildings (majlis, restrooms, kiosks)</span><b>14%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:14%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Play, sport &amp; fitness</span><b>12%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:12%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>MEP, lighting &amp; smart systems</span><b>10%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:10%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Water systems (bioswales, reuse)</span><b>5%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:5%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Contingency &amp; preliminaries</span><b>3%</b></div><div style="height:8px;background:#e7efe0;border-radius:6px"><div style="width:3%;height:8px;background:#E8792B;border-radius:6px"></div></div></div>
+      </div>
+      <p class="note" style="margin-top:10px">Indicative concept‑level allocation for communication; to be firmed up with QS costing.</p>
+    </div>
+    <div>
+      <h3>Phased delivery</h3>
+      <div class="card" style="margin-bottom:12px"><h3>Phase 1 — Comfort first</h3><p>Cool Loop, Majlis Grove core, entrances &amp; universal access. Brings shade and daily usability fast.</p></div>
+      <div class="card" style="margin-bottom:12px"><h3>Phase 2 — Play, sport &amp; water</h3><p>Adaptive play, upgraded shaded courts &amp; fitness, the Sponge Garden, restrooms &amp; kiosks.</p></div>
+      <div class="card"><h3>Phase 3 — Energy &amp; smart</h3><p>Solar Canopy Spine completion, smart monitoring, and events &amp; public‑art infrastructure.</p></div>
+    </div>
+  </div>
+  <div class="grid3" style="margin-top:24px">
+    <div class="card"><h3>Reuse = savings</h3><p>Retains the existing pitch, court and mature trees — cutting demolition, cost and establishment time.</p></div>
+    <div class="card"><h3>Self‑funding operations</h3><p>Kiosks, café and events (leasable ~15%) generate revenue; xeriscape + solar cut running costs — supporting long‑term viability.</p></div>
+    <div class="card"><h3>Low‑maintenance by design</h3><p>Modular prefab shade &amp; PV, durable materials and native planting keep lifecycle cost and upkeep low.</p></div>
+  </div>
+</div></section>
+
+<!-- SCORECARD -->
+<section id="score"><div class="wrap">
+  <div class="eyebrow">Evaluation</div>
+  <h2 class="title">Built to score on the official jury matrix</h2>
+  <p class="lead">Schedule 7 scores six weighted criteria (1–10). ZILAL is engineered to be strongest exactly where the weight sits — <b>80% of the score</b> is Innovation, Human‑centred sustainability, AI and Presentation.</p>
+  <table style="margin-top:8px">
+    <tr><th>Jury criterion</th><th>Weight</th><th>How ZILAL is built to score</th></tr>
+    <tr><td>Innovation &amp; Creativity</td><td><b>20%</b></td><td>An AI‑orchestrated “self‑cooling oasis” that reclaims the lost mid‑day hours; Ghaf‑tree identity; a live comfort/wayfinding app — a bold concept, not just renders.</td></tr>
+    <tr><td>Human‑Centred Design, Sustainability &amp; Quality of Life</td><td><b>20%</b></td><td>Built around the 6 pm peak &amp; five real audiences; universal access &amp; People of Determination; −41% water, net‑positive energy, +5.5 comfortable hrs/day, native biodiversity.</td></tr>
+    <tr><td>Integration &amp; Effective Use of AI</td><td><b>20%</b></td><td>A documented Ingest→Generate→Simulate→Forecast→Visualise pipeline with named tools, alternatives tested and human‑led decisions.</td></tr>
+    <tr><td>Quality of Presentation &amp; Communication</td><td><b>20%</b></td><td>Interactive microsite + boards, a clear narrative, data visualisations, day &amp; night renders and a 1‑minute animation.</td></tr>
+    <tr><td>Feasibility &amp; Implementation</td><td><b>15%</b></td><td>Scoped to AED 35M: phased, reuses courts &amp; trees, modular shade/PV, commerce funds operations.</td></tr>
+    <tr><td>Quality of Design &amp; User Experience</td><td><b>5%</b></td><td>Legible active‑edge / quiet‑core zoning, seamless day‑to‑night activation, and a strong sense of place.</td></tr>
+  </table>
+  <h3 style="margin-top:36px">Alignment to the Manual's 14 parameters</h3>
+  <div class="grid2">
+    <figure><img src="img/radar.png" alt="Radar chart of 14 DM parameters"><figcaption>Targeted performance against the Manual's 14 parameters (good ≥60 · excellent ≥80 · exceptional 100).</figcaption></figure>
+    <div>
+      <table>
+        <tr><th>Group</th><th>Parameter</th><th>How ZILAL wins it</th></tr>
+        <tr><td rowspan="4">Zoning</td><td>Accessibility</td><td>4 identity gateways, step‑free, health‑centre link</td></tr>
+        <tr><td>Walkability</td><td>Cool Loop + varied routes</td></tr>
+        <tr><td>Landscapes</td><td>Seasonal native planting</td></tr>
+        <tr><td>Zones quality &amp; use</td><td>Staggered active edge / quiet core</td></tr>
+        <tr><td rowspan="7">Activities<br>&amp; Amenities</td><td>Playscapes</td><td>All‑abilities destination play</td></tr>
+        <tr><td>Active recreation</td><td>Shaded courts + fitness loop</td></tr>
+        <tr><td>Passive recreation</td><td>Majlis Grove, picnic lawns</td></tr>
+        <tr><td>Special recreation</td><td>Sensory garden, water play</td></tr>
+        <tr><td>Commercial activities</td><td>Food/craft market kiosks</td></tr>
+        <tr><td>Services</td><td>Prayer, restrooms, shade, WiFi</td></tr>
+        <tr><td>Climate comfort</td><td class="tag2">Shade 18→72%, misting, solar</td></tr>
+        <tr><td rowspan="2">Events &amp;<br>Experiences</td><td>Wayfinding</td><td>AI app: cool routes &amp; challenges</td></tr>
+        <tr><td>Events / Attractiveness</td><td>Seasonal calendar + public art</td></tr>
+      </table>
+    </div>
+  </div>
+</div></section>
+
+<!-- VOTE (stage 2) -->
+<section id="vote" class="vote"><div class="wrap">
+  <div class="eyebrow" style="color:#ffe9d6">Stage 2 · public vote</div>
+  <h2>Help ZILAL AL SAFA win the people's vote</h2>
+  <p style="font-size:19px;max-width:680px;margin:0 auto">A park designed around this community deserves this community's vote. Share it, and cast yours when public voting opens.</p>
+  <a class="btn" href="#">Share this proposal</a>
+</div></section>
+
+<footer><div class="wrap">
+  <b style="color:#fff">ZILAL AL SAFA</b> — concept submission for the Dubai Municipality AI‑Powered Park Design Challenge (Al Safa Park 2).<br>
+  Prepared with an AI‑assisted, human‑led design workflow. Renders are AI‑generated concept visuals; data figures are modelled estimates for concept communication.
+</div></footer>
+
+</body>
+</html>

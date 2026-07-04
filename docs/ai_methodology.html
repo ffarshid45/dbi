@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>ZILAL AL SAFA — AI Methodology Report</title>
+<link rel="stylesheet" href="doc.css"></head><body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="brand">
+    <div class="l"><div class="k">AI Methodology Report</div>
+      <h1>ZILAL AL SAFA</h1>
+      <div class="sub">How artificial intelligence shaped every stage of the design — with human-led decisions</div></div>
+    <div class="r"><b>Dubai Municipality</b><br>AI Park Design Challenge<br>Plot 3570616 · 15,000 m²<br>Concept + Preliminary Design</div>
+  </div>
+
+  <h2>1 · Purpose &amp; principle</h2>
+  <p>The Challenge asks entrants to demonstrate how AI can be <b>meaningfully integrated throughout both the Concept and Preliminary design stages</b> — to support analysis, ideation, design development and decision-making — while maintaining human creativity and professional judgement. This report documents exactly that for ZILAL AL SAFA.</p>
+  <div class="box"><b>Our governing principle — “AI proposes, humans dispose.”</b> At every stage, AI is used to <b>widen the option space</b> and to <b>quantify trade-offs</b> faster and more rigorously than manual methods allow. Every final spatial, cultural and aesthetic decision is made by the human design team. AI is a co-designer and analyst, never the author.</div>
+
+  <h2>2 · The pipeline at a glance</h2>
+  <p>AI is applied through a five-stage, reproducible pipeline. Each stage has defined inputs, tools, AI-generated outputs, the alternatives evaluated, and the human decision that closed it.</p>
+  <table>
+    <tr><th>Stage</th><th>Question it answers</th><th>Principal AI role</th></tr>
+    <tr><td class="wt">01 · Ingest</td><td>What is really happening on this site?</td><td>Data fusion, computer vision, NLP sentiment</td></tr>
+    <tr><td class="wt">02 · Generate</td><td>What layouts are worth considering?</td><td>Generative &amp; parametric option search</td></tr>
+    <tr><td class="wt">03 · Simulate</td><td>How comfortable &amp; usable is each option?</td><td>Environmental &amp; pedestrian simulation</td></tr>
+    <tr><td class="wt">04 · Forecast</td><td>How will people actually use it?</td><td>Predictive experience &amp; capacity models</td></tr>
+    <tr><td class="wt">05 · Visualise</td><td>How do we communicate it truthfully?</td><td>Diffusion-model imagery &amp; data storytelling</td></tr>
+  </table>
+  <p class="small">Every stage feeds the next; findings also loop back (e.g. simulation results re-seed a new round of generation). The loop is run until performance targets and design intent converge.</p>
+
+  <h2>3 · Data foundation</h2>
+  <p>The analysis is grounded in the supplied competition material and open data, not assumption:</p>
+  <ul>
+    <li><b>Supplied:</b> the DWG survey/base plan, the Neighborhood Parks Manual and the Scope of Work.</li>
+    <li><b>Site &amp; context:</b> satellite &amp; aerial imagery, GIS layers, cadastral geometry (90 × 166 m, plot 3570616), adjacent land uses (health centre, school, mosque, shopping, villas).</li>
+    <li><b>Behaviour:</b> Google “popular times” footfall curves (confirming the ~6 pm peak and midday collapse) and public review sentiment.</li>
+    <li><b>Climate:</b> Dubai sun-path, temperature, humidity and wind-rose normals for solar, shade and thermal-comfort modelling.</li>
+  </ul>
+
+  <div class="foot"><span>ZILAL AL SAFA — AI Methodology Report</span><span>Dubai Municipality · AI Park Design Challenge</span><span>1 / 6</span></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="brand"><div class="l"><div class="k">AI Methodology Report</div><h1 style="font-size:15pt">Stage-by-stage method (1)</h1></div><div class="r"><b>ZILAL AL SAFA</b></div></div>
+
+  <h3><span class="stepnum">1</span>Ingest — site intelligence</h3>
+  <p><b>Objective:</b> build an evidence base of how the site performs and how people use it. <b>Tools/methods:</b> GIS &amp; QGIS for spatial layers; computer-vision extraction of tree canopy, paths and hard/soft surfaces from aerial imagery; sun-path &amp; wind-rose computation; NLP sentiment analysis of public reviews; parsing of the DWG survey.</p>
+  <p><b>AI outputs:</b> a canopy &amp; surface map, an hourly footfall curve, a heat/shade exposure baseline, and a ranked list of user-voiced issues (heat, shade, seating, facilities). <b>Human decision:</b> the team confirmed the core problem statement — “reclaim the midday heat-gap hours” — as the project's north star.</p>
+
+  <h3><span class="stepnum">2</span>Generate — layout option search</h3>
+  <p><b>Objective:</b> explore many spatial arrangements rather than one. <b>Tools/methods:</b> parametric modelling (Grasshopper-style rule systems) plus generative models to vary path geometry, canopy placement, zone adjacencies and program mix, subject to constraints (retain pitch/court &amp; mature trees, four gateways, ~1 km loop, ~15% leasable).</p>
+  <p><b>AI outputs:</b> dozens of candidate layouts, each scored on shade-reachability, walkability (route directness &amp; loop length), program adjacency and retained-asset preservation. <b>Human decision:</b> the team selected and refined the “Cool Loop wrapping a cool social core” family, rejecting options that fragmented the canopy or pushed active uses into the quiet core.</p>
+  <div class="box"><b>Representative generation brief (paraphrased):</b> “Generate park layouts on a 90×166 m plot that (a) provide a continuous shaded circuit ≥ ~1 km, (b) keep passive/social space in the thermally coolest zone, (c) retain the existing pitch, court and mature trees, (d) give each of the four edges a distinct entrance, and (e) reserve ~15% for leasable commercial use. Rank by shade-reachability and route directness.”</div>
+
+  <div class="foot"><span>ZILAL AL SAFA — AI Methodology Report</span><span>Dubai Municipality · AI Park Design Challenge</span><span>2 / 6</span></div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="brand"><div class="l"><div class="k">AI Methodology Report</div><h1 style="font-size:15pt">Stage-by-stage method (2)</h1></div><div class="r"><b>ZILAL AL SAFA</b></div></div>
+
+  <h3><span class="stepnum">3</span>Simulate — comfort &amp; flow</h3>
+  <p><b>Objective:</b> test how each shortlisted option actually performs. <b>Tools/methods:</b> hourly/seasonal shade ray-tracing and UTCI thermal-comfort modelling (Ladybug/Honeybee-type environmental tools) driven by Dubai climate data; pedestrian-flow modelling across the path network at the 6 pm peak.</p>
+  <p><b>AI outputs:</b> per-hour shade maps, comfortable-area percentages (e.g. comfortable area at 3 pm July rising from ~9% to ~63%), and congestion/desire-line diagnostics. <b>Human decision:</b> canopies were concentrated on ray-traced hot-spots (“more comfort per dirham”) and the active edge was oriented toward the busy arrival, keeping the grove calm.</p>
+
+  <h3><span class="stepnum">4</span>Forecast — experience &amp; capacity</h3>
+  <p><b>Objective:</b> anticipate how the redesigned park will be used before it is built. <b>Tools/methods:</b> machine-learning models estimating dwell time, hourly capacity and inclusivity coverage by zone, calibrated to the Manual's targets (150–400 visitors / 10,000 m², 1–3 hour visits) and the observed footfall curve.</p>
+  <p><b>AI outputs:</b> projected extension of comfortable usable hours (~+5.5 h/day in summer), balanced zone loading, and gap-detection for under-served user groups. <b>Human decision:</b> amenities (seating, WCs, water points, rest nodes ≤ 60 m apart) were distributed to remove the forecast gaps, and the events calendar was scheduled to the climate year.</p>
+
+  <h3><span class="stepnum">5</span>Visualise — render &amp; narrate</h3>
+  <p><b>Objective:</b> communicate the scheme truthfully and vividly. <b>Tools/methods:</b> diffusion-model image generation for day and night perspectives, art-directed by the team to match the plan; data-visualisation of the modelled results; assembly of the interactive microsite, board set and one-minute concept animation.</p>
+  <p><b>AI outputs:</b> photorealistic concept perspectives (aerial, majlis, Cool Loop, all-abilities play, and a night view), the charts in this submission, and draft narrative text. <b>Human decision:</b> the team curated, corrected and captioned every image so visuals remain faithful to the measured design intent — renders illustrate the concept and are labelled as such.</p>
+
+  <div class="foot"><span>ZILAL AL SAFA — AI Methodology Report</span><span>Dubai Municipality · AI Park Design Challenge</span><span>3 / 6</span></div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="brand"><div class="l"><div class="k">AI Methodology Report</div><h1 style="font-size:15pt">Coverage &amp; toolchain</h1></div><div class="r"><b>ZILAL AL SAFA</b></div></div>
+
+  <h2>4 · AI applied across all required areas</h2>
+  <p>The Scope lists specific areas in which AI should be applied. ZILAL uses AI in each:</p>
+  <table>
+    <tr><th>Area of application</th><th>How AI was used in ZILAL</th></tr>
+    <tr><td class="wt">Site &amp; context analysis</td><td>CV surface/canopy extraction, GIS fusion, DWG parsing</td></tr>
+    <tr><td class="wt">User &amp; community analysis</td><td>Footfall curves, review-sentiment NLP, persona synthesis</td></tr>
+    <tr><td class="wt">Environmental analysis</td><td>Sun-path, shade ray-tracing, UTCI, wind modelling</td></tr>
+    <tr><td class="wt">Design ideation</td><td>Generative &amp; parametric layout search</td></tr>
+    <tr><td class="wt">Design development &amp; optimisation</td><td>Iterative scoring of shade, walkability, adjacency</td></tr>
+    <tr><td class="wt">Sustainability &amp; resilience</td><td>Irrigation/water-balance &amp; solar-yield estimation</td></tr>
+    <tr><td class="wt">User experience &amp; decision-making</td><td>Dwell-time/capacity forecasting, gap detection</td></tr>
+    <tr><td class="wt">Visualisation &amp; communication</td><td>Diffusion renders, data viz, animation, microsite</td></tr>
+  </table>
+
+  <h2>5 · Toolchain summary</h2>
+  <table>
+    <tr><th>Function</th><th>Representative tools / techniques</th><th>Output used</th></tr>
+    <tr><td class="wt">Spatial data &amp; GIS</td><td>QGIS, satellite/aerial imagery, DWG survey</td><td>Base plan, context &amp; surface maps</td></tr>
+    <tr><td class="wt">Computer vision</td><td>Segmentation of canopy / paths / surfaces</td><td>Existing-conditions baseline</td></tr>
+    <tr><td class="wt">Behaviour &amp; NLP</td><td>Popular-times data, review-sentiment analysis</td><td>Footfall curve, issue ranking, personas</td></tr>
+    <tr><td class="wt">Generative design</td><td>Parametric (Grasshopper-style) + generative models</td><td>Layout option set &amp; scoring</td></tr>
+    <tr><td class="wt">Environmental sim</td><td>Ladybug/Honeybee-type shade &amp; UTCI, wind</td><td>Shade &amp; comfort maps, KPIs</td></tr>
+    <tr><td class="wt">Predictive modelling</td><td>ML dwell-time / capacity / coverage</td><td>Usage &amp; inclusivity forecasts</td></tr>
+    <tr><td class="wt">Visualisation</td><td>Diffusion image models; charting; web</td><td>Renders, charts, microsite, animation</td></tr>
+  </table>
+  <p class="small">Tool names are representative of the methods applied at concept stage; equivalent industry-standard tools may be substituted during detailed design without changing the methodology.</p>
+
+  <div class="foot"><span>ZILAL AL SAFA — AI Methodology Report</span><span>Dubai Municipality · AI Park Design Challenge</span><span>4 / 6</span></div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <div class="brand"><div class="l"><div class="k">AI Methodology Report</div><h1 style="font-size:15pt">Validation &amp; governance</h1></div><div class="r"><b>ZILAL AL SAFA</b></div></div>
+
+  <h2>6 · Validation, limitations &amp; assumptions</h2>
+  <ul>
+    <li><b>Modelled, not measured:</b> figures are concept-level estimates grounded in Manual targets, climate normals and public data. They will be validated with an on-site survey, metered baselines and detailed simulation in the next stage.</li>
+    <li><b>Human validation:</b> every AI output was reviewed by the design team; implausible or off-brief results were discarded, not published.</li>
+    <li><b>Reproducibility:</b> inputs, constraints and scoring criteria are documented so the pipeline can be re-run and audited.</li>
+  </ul>
+
+  <h2>7 · Responsible-AI governance</h2>
+  <ul>
+    <li><b>Human accountability:</b> named designers own every final decision; AI outputs are advisory.</li>
+    <li><b>Bias &amp; inclusivity:</b> forecasts were explicitly checked for under-served groups (People of Determination, seniors, children, women, teenagers) and gaps were designed out.</li>
+    <li><b>Data ethics:</b> only aggregate, non-personal, publicly available behavioural data was used.</li>
+    <li><b>Transparency:</b> AI-generated imagery is labelled as concept visualisation; no render is presented as a photograph of an existing condition.</li>
+  </ul>
+
+  <div class="box"><b>Human creativity + AI rigour.</b> The cultural and creative core of ZILAL — the Ghaf-tree identity, the majlis social heart, the “reclaim the lost hours” idea, the sense of place — is human. AI's contribution is to make that vision <b>measurably better and defensible</b>: to prove the shade works at 3 pm in July, that the loop is genuinely ~1 km and walkable, that the water and energy numbers add up, and that no user group is left out.</div>
+
+  <div class="foot"><span>ZILAL AL SAFA — AI Methodology Report</span><span>Dubai Municipality · AI Park Design Challenge</span><span>5 / 6</span></div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <div class="brand"><div class="l"><div class="k">AI Methodology Report</div><h1 style="font-size:15pt">Why this wins the AI criterion</h1></div><div class="r"><b>ZILAL AL SAFA</b></div></div>
+
+  <h2>8 · The differentiator</h2>
+  <div class="box navy">
+    <p>Most entrants will submit renders and a paragraph about AI. ZILAL submits a <b>documented, reproducible pipeline</b> where AI demonstrably shaped analysis, ideation, development, decision-making and communication — with human judgement retained throughout. That is precisely what the “Integration &amp; Effective Use of AI” criterion (20% of the score) rewards.</p>
+  </div>
+
+  <h2>9 · From concept to preliminary design</h2>
+  <p>The same pipeline carries into the Preliminary stage: generation is narrowed to detailed layout resolution; simulation is re-run at higher fidelity on the chosen scheme; forecasting informs amenity sizing and phasing; and visualisation produces the developed drawings, sections, boards and animation accompanying this submission.</p>
+  <table>
+    <tr><th>Stage</th><th>Concept design use</th><th>Preliminary design use</th></tr>
+    <tr><td class="wt">Ingest</td><td>Problem framing &amp; baseline</td><td>Survey-calibrated data</td></tr>
+    <tr><td class="wt">Generate</td><td>Broad layout families</td><td>Resolved layout &amp; details</td></tr>
+    <tr><td class="wt">Simulate</td><td>Comparative comfort screening</td><td>High-fidelity verification</td></tr>
+    <tr><td class="wt">Forecast</td><td>Usage direction</td><td>Amenity sizing &amp; phasing</td></tr>
+    <tr><td class="wt">Visualise</td><td>Concept renders &amp; microsite</td><td>Developed drawings, boards, animation</td></tr>
+  </table>
+
+  <div class="box"><b>Summary:</b> AI is not a garnish on ZILAL — it is the method by which a culturally-rooted, human-authored vision was made comfortable, inclusive, sustainable and buildable, and proven with numbers.</div>
+  <p class="small">This report accompanies the ZILAL AL SAFA concept + preliminary design submission (interactive microsite, drawing set, board set, renders, data charts and one-minute animation).</p>
+
+  <div class="foot"><span>ZILAL AL SAFA — AI Methodology Report</span><span>Dubai Municipality · AI Park Design Challenge</span><span>6 / 6</span></div>
+</div>
+</body></html>
