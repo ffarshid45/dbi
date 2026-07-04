@@ -11,11 +11,20 @@ for f in os.listdir(OUT):
 
 W,H=1920,1080
 FPS=25
-NAVY=(18,41,79); NAVY2=(28,58,99); ORANGE=(232,121,43); INK=(34,48,63)
-WHITE=(245,248,252); MUTE=(150,170,200)
-FONT="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
-FONTB="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-def fnt(sz,bold=True): return ImageFont.truetype(FONTB if bold else FONT,sz)
+# premium palette: ink navy + terracotta + warm sand
+NAVY=(14,27,42); NAVY2=(24,42,64); ORANGE=(193,89,44); INK=(28,43,56)
+GOLD=(238,191,156)  # warm sand accent (#eebf9c)
+WHITE=(245,248,252); MUTE=(150,167,190)
+FDIR="/home/ubuntu/aipark-submission/assets/fonts"
+SERIF=f"{FDIR}/Fraunces-600-normal.ttf"
+SERIF_IT=f"{FDIR}/Fraunces-600-italic.ttf"
+SANS=f"{FDIR}/Manrope-400-normal.ttf"
+SANS_M=f"{FDIR}/Manrope-600-normal.ttf"
+SANS_B=f"{FDIR}/Manrope-700-normal.ttf"
+def fnt(sz,bold=True): return ImageFont.truetype(SANS_B if bold else SANS,sz)
+def ser(sz): return ImageFont.truetype(SERIF,sz)
+def serit(sz): return ImageFont.truetype(SERIF_IT,sz)
+def sans_m(sz): return ImageFont.truetype(SANS_M,sz)
 
 def smooth(t): return t*t*(3-2*t)
 def lerp(a,b,t): return a+(b-a)*t
@@ -45,11 +54,11 @@ def draw_caption(fr,title,sub,alpha):
     ov=Image.new("RGBA",(W,H),(0,0,0,0))
     ov=Image.alpha_composite(ov,scrim())
     d=ImageDraw.Draw(ov)
-    x=110; y=H-235
-    d.rectangle([x,y+8,x+70,y+58],fill=ORANGE+(255,))
-    d.text((x+92,y),title,font=fnt(60),fill=WHITE+(255,))
+    x=110; y=H-238
+    d.rectangle([x,y+10,x+6,y+70],fill=ORANGE+(255,))
+    d.text((x+34,y-4),title,font=ser(62),fill=WHITE+(255,))
     if sub:
-        d.text((x+92,y+82),sub,font=fnt(33,False),fill=(206,220,244,255))
+        d.text((x+34,y+84),sub,font=sans_m(32),fill=(214,224,240,255))
     a=int(clamp(alpha,0,1)*255)
     ov.putalpha(ov.getchannel("A").point(lambda p:int(p*a/255)))
     base=fr.convert("RGBA")
@@ -87,26 +96,27 @@ def title_card(t):
     fr=bg_card(); d=ImageDraw.Draw(fr)
     # subtle rising: content shifts up slightly
     dy=int(lerp(24,0,smooth(min(t*1.6,1))))
-    d.text((W/2,H/2-70+dy),"ZILAL AL SAFA",font=fnt(120),fill=WHITE,anchor="mm")
-    d.line([(W/2-260,H/2+14+dy),(W/2+260,H/2+14+dy)],fill=ORANGE,width=5)
-    d.text((W/2,H/2+80+dy),"An AI-designed, self-cooling neighbourhood oasis for Al Safa Park 2",
-           font=fnt(40,False),fill=(206,220,244),anchor="mm")
-    d.text((W/2,H-90),"DUBAI MUNICIPALITY  ·  WORLD'S FIRST AI-POWERED PARK DESIGN CHALLENGE",
-           font=fnt(24),fill=MUTE,anchor="mm")
+    d.text((W/2,H/2-150+dy),"CONCEPT + PRELIMINARY DESIGN",font=fnt(22),fill=GOLD,anchor="mm")
+    d.text((W/2,H/2-58+dy),"ZILAL AL SAFA",font=ser(124),fill=WHITE,anchor="mm")
+    d.line([(W/2-150,H/2+26+dy),(W/2+150,H/2+26+dy)],fill=ORANGE,width=4)
+    d.text((W/2,H/2+92+dy),"An AI-designed, self-cooling neighbourhood oasis for Al Safa Park 2",
+           font=sans_m(38),fill=(214,224,240),anchor="mm")
+    d.text((W/2,H-90),"DUBAI MUNICIPALITY   ·   WORLD'S FIRST AI-POWERED PARK DESIGN CHALLENGE",
+           font=fnt(23),fill=MUTE,anchor="mm")
     return fr
 
 def problem_card(t):
     fr=bg_card(); d=ImageDraw.Draw(fr)
-    d.text((W/2,H/2-120),"THE PROBLEM",font=fnt(30),fill=ORANGE,anchor="mm")
-    d.text((W/2,H/2-40),"The desert heat closes the park",font=fnt(58,False),fill=WHITE,anchor="mm")
-    d.text((W/2,H/2+30),"for roughly six hours a day.",font=fnt(58,False),fill=WHITE,anchor="mm")
-    d.text((W/2,H/2+150),"We use AI to reclaim those lost hours.",font=fnt(46),fill=(232,180,120),anchor="mm")
+    d.text((W/2,H/2-140),"THE PROBLEM",font=fnt(28),fill=ORANGE,anchor="mm")
+    d.text((W/2,H/2-46),"The desert heat closes the park",font=ser(62),fill=WHITE,anchor="mm")
+    d.text((W/2,H/2+30),"for roughly six hours a day.",font=ser(62),fill=WHITE,anchor="mm")
+    d.text((W/2,H/2+150),"We use AI to reclaim those lost hours.",font=serit(44),fill=GOLD,anchor="mm")
     return fr
 
 def closing_card(t):
     fr=bg_card(); d=ImageDraw.Draw(fr)
-    d.text((W/2,150),"BUILT TO WIN — AND BUILT WITHIN BUDGET",font=fnt(30),fill=ORANGE,anchor="mm")
-    stats=[("18\u219272%","Reliable shade over paths"),("+5.5 h","Comfortable hrs/day, summer"),
+    d.text((W/2,150),"BUILT TO WIN · AND BUILT WITHIN BUDGET",font=fnt(28),fill=ORANGE,anchor="mm")
+    stats=[("18\u201372%","Reliable shade over paths"),("+5.5 h","Comfortable hrs/day, summer"),
            ("\u221241%","Irrigation water demand"),("Net+","On-site solar energy")]
     n=len(stats); gap=60; bw=(W-220-(n-1)*gap)/n; y0=330; bh=250
     for i,(v,s) in enumerate(stats):
@@ -117,14 +127,13 @@ def closing_card(t):
         cd.rounded_rectangle([0,0,int(bw)-1,bh-1],22,fill=(255,255,255,int(16*ap)+8),outline=(120,150,200,int(120*ap)),width=2)
         fr.paste(Image.alpha_composite(Image.new("RGBA",card.size,(0,0,0,0)),card),(int(x0),yy),card)
         dd=ImageDraw.Draw(fr)
-        col=tuple(int(c) for c in (lerp(18,255,ap),lerp(41,255,ap),lerp(79,255,ap)))
-        dd.text((x0+bw/2,yy+bh/2-28),v,font=fnt(64),fill=(WHITE if ap>0.5 else (120,140,175)),anchor="mm")
-        dd.text((x0+bw/2,yy+bh/2+56),s,font=fnt(26,False),fill=(190,206,232) if ap>0.5 else (90,110,150),anchor="mm")
+        dd.text((x0+bw/2,yy+bh/2-28),v,font=ser(60),fill=(GOLD if ap>0.5 else (120,140,175)),anchor="mm")
+        dd.text((x0+bw/2,yy+bh/2+58),s,font=sans_m(25),fill=(196,210,232) if ap>0.5 else (90,110,150),anchor="mm")
     d=ImageDraw.Draw(fr)
-    d.text((W/2,H-260),"ZILAL AL SAFA",font=fnt(88),fill=WHITE,anchor="mm")
-    d.line([(W/2-300,H-196),(W/2+300,H-196)],fill=ORANGE,width=4)
-    d.text((W/2,H-150),"A year-round, AI-designed, self-cooling oasis  ·  delivered within AED 35 million",
-           font=fnt(34,False),fill=(206,220,244),anchor="mm")
+    d.text((W/2,H-262),"ZILAL AL SAFA",font=ser(92),fill=WHITE,anchor="mm")
+    d.line([(W/2-150,H-192),(W/2+150,H-192)],fill=ORANGE,width=4)
+    d.text((W/2,H-146),"A year-round, AI-designed, self-cooling oasis  ·  delivered within AED 35 million",
+           font=sans_m(33),fill=(214,224,240),anchor="mm")
     return fr
 
 # ---- scene definitions ----

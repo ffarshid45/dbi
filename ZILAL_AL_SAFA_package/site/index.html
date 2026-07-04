@@ -5,41 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZILAL AL SAFA — AI-designed regeneration of Al Safa Park 2</title>
 <style>
+  @import url('../assets/fonts/fonts.css');
   :root{
-    --navy:#0a1b3d; --navy2:#12294f; --sand:#f3ece1; --sand2:#e7dcc8;
-    --orange:#E8792B; --teal:#2fb6a8; --green:#5F9E4B; --ink:#0a1b3d;
-    --muted:#5b6b88; --line:#dfe5ef;
+    --navy:#0E1B2A; --navy2:#17324a; --sand:#F5EFE4; --sand2:#EBE2D1;
+    --orange:#C1592C; --teal:#2F6F5E; --green:#3f7a34; --ink:#0E1B2A;
+    --muted:#6b7683; --line:#E7E0D2;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
-  h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
+  body{margin:0;font-family:'Manrope',system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.62;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;line-height:1.08;letter-spacing:.1px;font-weight:600}
   a{color:var(--orange);text-decoration:none}
+  /* glass */
+  .glass{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);
+    backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+    box-shadow:0 18px 50px rgba(0,0,0,.30), inset 0 1.5px 0 rgba(255,255,255,.5)}
   .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
   .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700;color:var(--orange)}
   /* top nav */
-  nav{position:sticky;top:0;z-index:50;background:rgba(10,27,61,.96);backdrop-filter:blur(6px)}
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,27,42,.72);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);border-bottom:1px solid rgba(255,255,255,.10)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  nav .brand{color:#fff;font-weight:800;letter-spacing:.02em;font-size:15px}
+  nav .brand{color:#fff;font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:.04em;font-size:18px}
   nav .brand span{color:var(--orange)}
   nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
   nav ul a{color:#cfe;opacity:.85;color:#e7edf7;font-size:14px;font-weight:600}
   nav ul a:hover{color:var(--orange)}
   @media(max-width:820px){nav ul{display:none}}
   /* hero */
-  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;
-    background:linear-gradient(180deg,rgba(10,27,61,.15),rgba(10,27,61,.55) 55%,rgba(10,27,61,.92)),url('img/aerial.jpg') center/cover}
-  .hero .wrap{padding-bottom:52px;padding-top:80px}
-  .hero .ar{font-size:20px;letter-spacing:.3em;color:#ffd9b0;font-weight:600}
-  .hero h1{font-size:64px;margin:.12em 0 .1em;font-weight:800}
-  .hero .tag{font-size:22px;max-width:720px;color:#eaf0fb;font-weight:400}
-  .hero .pill{display:inline-block;margin-top:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
-    padding:7px 14px;border-radius:40px;font-size:13px;font-weight:600}
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;
+    background:linear-gradient(160deg,rgba(14,27,42,.30),rgba(14,27,42,.55) 55%,rgba(11,20,34,.92)),url('img/aerial.jpg') center/cover}
+  .hero .wrap{padding-bottom:56px;padding-top:80px}
+  .hero .panel{display:inline-block;max-width:760px;padding:34px 40px 38px;border-radius:22px}
+  .hero .ar{font-family:'Fraunces',Georgia,serif;font-size:22px;letter-spacing:.22em;color:#eebf9c;font-weight:400}
+  .hero h1{font-size:66px;margin:.14em 0 .12em;font-weight:600;letter-spacing:.3px}
+  .hero h1 em{font-style:italic;color:#eebf9c;font-weight:500}
+  .hero .tag{font-size:21px;max-width:640px;color:#e7edf5;font-weight:400;line-height:1.5}
+  .hero .rule{width:64px;height:3px;background:var(--orange);margin:20px 0 0;border-radius:3px;box-shadow:0 0 14px rgba(193,89,44,.6)}
+  .hero .pill{display:inline-block;margin-top:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);
+    padding:8px 16px;border-radius:40px;font-size:13px;font-weight:600}
   @media(max-width:720px){.hero h1{font-size:40px}.hero .tag{font-size:18px}}
   /* stat strip */
   .stats{background:var(--navy);color:#fff}
   .stats .wrap{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:26px 22px}
-  .stat b{display:block;font-size:30px;color:var(--orange);font-weight:800}
+  .stat b{display:block;font-family:'Fraunces',Georgia,serif;font-size:32px;color:#eebf9c;font-weight:600}
   .stat small{color:#b9c6de;font-size:12.5px;line-height:1.35;display:block}
   @media(max-width:820px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
   /* sections */
@@ -47,16 +55,16 @@
   section.alt{background:var(--sand)}
   section.dark{background:var(--navy);color:#fff;border-bottom:none}
   section.dark h2,section.dark h3{color:#fff}
-  h2.title{font-size:34px;margin:.15em 0 .3em}
-  .lead{font-size:19px;color:var(--muted);max-width:820px}
+  h2.title{font-size:38px;margin:.15em 0 .32em;font-weight:600}
+  .lead{font-size:18.5px;color:var(--muted);max-width:820px;line-height:1.55}
   section.dark .lead{color:#c3cfe6}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(10,27,61,.05)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 14px 34px rgba(14,27,42,.06)}
   section.alt .card{background:#fff}
   .card h3{margin:.1em 0 .35em;font-size:19px}
-  .card .n{width:38px;height:38px;border-radius:10px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+  .card .n{width:40px;height:40px;border-radius:11px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:18px;margin-bottom:12px}
   figure{margin:0}
   figure img{width:100%;border-radius:16px;display:block;border:1px solid var(--line)}
   figcaption{color:var(--muted);font-size:13.5px;margin-top:8px}
@@ -64,8 +72,8 @@
   .chip{display:inline-block;background:var(--sand2);color:var(--navy2);border-radius:30px;padding:5px 12px;font-size:12.5px;font-weight:600;margin:3px 4px 3px 0}
   /* pipeline */
   .pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:26px}
-  .pipe .step{background:var(--navy2);border:1px solid #24406e;border-radius:14px;padding:18px}
-  .pipe .step b{color:var(--orange);font-size:13px;letter-spacing:.05em}
+  .pipe .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.22)}
+  .pipe .step b{color:#eebf9c;font-size:13px;letter-spacing:.05em}
   .pipe .step h4{margin:.35em 0 .3em;font-size:16px;color:#fff}
   .pipe .step p{margin:0;font-size:13px;color:#b9c6de}
   @media(max-width:820px){.pipe{grid-template-columns:1fr 1fr}}
@@ -73,7 +81,7 @@
   /* table */
   table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:10px}
   th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
-  th{background:var(--navy);color:#fff;font-weight:600}
+  th{background:transparent;color:var(--orange);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid var(--ink)}
   tr:nth-child(even){background:var(--sand)}
   .tag2{color:var(--green);font-weight:700}
   /* plan svg */
@@ -110,10 +118,13 @@
 
 <!-- HERO -->
 <header class="hero"><div class="wrap">
-  <div class="ar">ظِلال الصفا</div>
-  <h1>ZILAL AL SAFA</h1>
-  <div class="tag">An AI‑designed, self‑cooling neighbourhood oasis for <b>Al Safa Park 2</b> — the first Dubai park <b>designed, simulated <i>and</i> operated by an AI comfort brain</b>, where every path, canopy and tree is placed by data, and every step you take shapes the park.</div>
-  <div class="pill">Dubai Municipality · World's First AI‑Powered Park Design Challenge</div>
+  <div class="panel glass">
+    <div class="ar">ظِلال الصفا</div>
+    <h1>ZILAL <em>AL&nbsp;SAFA</em></h1>
+    <div class="tag">An AI‑designed, self‑cooling neighbourhood oasis for <b>Al Safa Park 2</b> — the first Dubai park <b>designed, simulated and operated by an AI comfort brain</b>, where every path, canopy and tree is placed by data, and every step you take shapes the park.</div>
+    <div class="rule"></div>
+    <div class="pill">Dubai Municipality · World's First AI‑Powered Park Design Challenge</div>
+  </div>
 </div></header>
 
 <!-- STAT STRIP -->

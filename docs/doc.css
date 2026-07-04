@@ -1,36 +1,108 @@
+@import url('../assets/fonts/fonts.css');
 @page{size:A4;margin:0}
-:root{--navy:#12294f;--orange:#E8792B;--green:#3f7a34;--ink:#22303f;--muted:#5b6b88;--line:#dfe4ea;--soft:#f5f7fa}
+:root{
+  --ink:#0E1B2A;        /* near-black navy */
+  --ink2:#3a4a5c;
+  --muted:#7b8794;
+  --paper:#ffffff;
+  --sand:#F5EFE4;       /* warm panel */
+  --sand2:#FBF8F2;
+  --line:#E7E0D2;       /* warm hairline */
+  --line2:#D8CFBD;
+  --accent:#C1592C;     /* terracotta */
+  --accent-d:#9d4520;
+  --sage:#2F6F5E;       /* deep sage/teal */
+  --gold:#B08324;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:"DejaVu Sans","Liberation Sans",Arial,sans-serif;color:var(--ink);font-size:10.6pt;line-height:1.5}
-.page{width:210mm;height:297mm;overflow:hidden;padding:18mm 20mm 16mm 20mm;position:relative;page-break-after:always;break-after:page;background:#fff}
+html,body{font-family:'Manrope',-apple-system,Arial,sans-serif;color:var(--ink);font-size:10.2pt;line-height:1.52;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1}
+.serif{font-family:'Fraunces',Georgia,serif}
+
+.page{width:210mm;height:297mm;overflow:hidden;padding:20mm 22mm 16mm 22mm;position:relative;page-break-after:always;break-after:page;background:var(--paper)}
 .page:last-child{page-break-after:avoid;break-after:auto}
-.brand{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5pt solid var(--navy);padding-bottom:5mm;margin-bottom:7mm}
-.brand .l .k{font-size:8pt;letter-spacing:2px;color:var(--orange);font-weight:700;text-transform:uppercase}
-.brand .l h1{font-size:20pt;color:var(--navy);letter-spacing:.3px;line-height:1.05;margin-top:1mm}
-.brand .l .sub{font-size:9pt;color:var(--muted);margin-top:1.5mm}
-.brand .r{text-align:right;font-size:8.2pt;color:var(--muted);line-height:1.5}
-.brand .r b{color:var(--navy)}
-h2{font-size:13pt;color:var(--navy);margin:6mm 0 2.5mm;padding-bottom:1mm;border-bottom:1px solid var(--line)}
-h3{font-size:11pt;color:var(--navy);margin:4mm 0 1.5mm}
-p{margin:0 0 2.6mm}
-ul,ol{margin:0 0 3mm 5mm}
-li{margin-bottom:1.2mm}
-.lead{font-size:11.5pt;color:#2c3a4d;line-height:1.55}
-.tag{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:3px;padding:1px 7px;font-size:8.6pt;color:var(--navy);margin:1px 2px 1px 0}
-table{width:100%;border-collapse:collapse;font-size:9.2pt;margin:2mm 0 3mm}
-th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2.4mm;font-size:8.8pt}
-td{border-bottom:1px solid var(--line);padding:2mm 2.4mm;vertical-align:top}
-tr:nth-child(even) td{background:#fafbfc}
-.wt{font-weight:700;color:var(--navy);white-space:nowrap}
-.box{background:var(--soft);border:1px solid var(--line);border-left:3pt solid var(--orange);border-radius:4px;padding:4mm 5mm;margin:3mm 0}
-.box.navy{background:var(--navy);color:#e8eefb;border-left-color:var(--orange)}
+
+/* ---------- running header ---------- */
+.brand{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line2);padding-bottom:4mm;margin-bottom:6mm;position:relative}
+.brand:after{content:"";position:absolute;left:0;bottom:-1px;width:26mm;height:2.4pt;background:var(--accent)}
+.brand .l .k{font-size:7.6pt;letter-spacing:3.3px;color:var(--accent);font-weight:700;text-transform:uppercase}
+.brand .l h1{font-family:'Fraunces',Georgia,serif;font-size:22pt;font-weight:600;color:var(--ink);letter-spacing:.2px;line-height:1.02;margin-top:2mm}
+.brand .l .sub{font-size:9.2pt;color:var(--ink2);margin-top:2mm;max-width:120mm;line-height:1.45}
+.brand .r{text-align:right;font-size:8pt;color:var(--muted);line-height:1.62;letter-spacing:.2px}
+.brand .r b{color:var(--ink);font-weight:700}
+
+/* ---------- headings ---------- */
+h2{font-family:'Fraunces',Georgia,serif;font-size:14pt;font-weight:600;color:var(--ink);margin:5.5mm 0 2.5mm;padding-bottom:1.8mm;border-bottom:1px solid var(--line);letter-spacing:.2px;display:flex;align-items:baseline;gap:3mm}
+h2 .no{font-family:'Fraunces',Georgia,serif;font-size:12pt;color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+h3{font-size:10.6pt;font-weight:700;color:var(--ink);margin:4mm 0 1.6mm;letter-spacing:.1px;display:flex;align-items:center;gap:2.6mm}
+p{margin:0 0 2.6mm;color:var(--ink2)}
+p b,li b{color:var(--ink);font-weight:700}
+ul,ol{margin:0 0 3.5mm 5mm;color:var(--ink2)}
+li{margin-bottom:1.6mm;padding-left:1mm}
+li::marker{color:var(--accent)}
+.lead{font-family:'Fraunces',Georgia,serif;font-size:13pt;font-weight:400;color:var(--ink);line-height:1.5;letter-spacing:.1px}
+
+.tag{display:inline-block;background:var(--sand);border:1px solid var(--line);border-radius:40px;padding:1.5px 9px;font-size:8.2pt;color:var(--ink);margin:1px 2px 1px 0;font-weight:600}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;font-size:8.9pt;margin:2.5mm 0 3.2mm}
+thead th,tr:first-child th,th{background:transparent;color:var(--accent);text-align:left;padding:0 3mm 2mm;font-size:7.6pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;border-bottom:1.4pt solid var(--ink)}
+td{border-bottom:1px solid var(--line);padding:2.1mm 3mm;vertical-align:top;color:var(--ink2)}
+tr:last-child td{border-bottom:1px solid var(--line2)}
+tr:nth-child(even) td{background:var(--sand2)}
+.wt{font-weight:700;color:var(--ink);white-space:nowrap}
+
+/* ---------- callout boxes ---------- */
+.box{background:var(--sand2);border:1px solid var(--line);border-left:2.6pt solid var(--accent);border-radius:2px;padding:3.8mm 5mm;margin:3.2mm 0}
+.box b{color:var(--ink)}
+.box.navy{background:var(--ink);color:#dfe6ee;border:none;border-left:2.6pt solid var(--accent);border-radius:2px;padding:5.5mm 6mm}
+.box.navy p{color:#cfd8e2}
+.box.navy b{color:#fff}
 .box.navy h3{color:#fff}
-.grid{display:flex;gap:5mm}
+.box.sage{border-left-color:var(--sage)}
+
+.grid{display:flex;gap:6mm}
 .grid>div{flex:1}
-.small{font-size:8.6pt;color:var(--muted)}
-.foot{position:absolute;left:20mm;right:20mm;bottom:10mm;border-top:1px solid var(--line);padding-top:2mm;display:flex;justify-content:space-between;font-size:7.8pt;color:var(--muted)}
-.stepnum{display:inline-block;background:var(--orange);color:#fff;font-weight:700;border-radius:50%;width:6.5mm;height:6.5mm;text-align:center;line-height:6.5mm;font-size:9pt;margin-right:2mm}
-.kpi{display:flex;gap:4mm;margin:3mm 0}
-.kpi div{flex:1;background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:3mm;text-align:center}
-.kpi b{display:block;font-size:15pt;color:var(--navy)}
-.kpi span{font-size:8pt;color:var(--muted)}
+.small{font-size:8.2pt;color:var(--muted);line-height:1.5}
+
+/* ---------- footer ---------- */
+.foot{position:absolute;left:22mm;right:22mm;bottom:11mm;border-top:1px solid var(--line);padding-top:2.4mm;display:flex;justify-content:space-between;font-size:7.4pt;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+.foot .pg{font-family:'Fraunces',Georgia,serif;font-size:9pt;color:var(--ink);letter-spacing:0;text-transform:none}
+
+/* ---------- step number chip ---------- */
+.stepnum{display:inline-flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;background:var(--ink);color:#fff;font-weight:600;border-radius:50%;width:7mm;height:7mm;font-size:9.5pt;flex:0 0 auto}
+h3 .stepnum{margin-right:.5mm}
+
+.pill{display:inline-block;font-size:6.8pt;letter-spacing:1.4px;font-weight:800;text-transform:uppercase;color:#fff;background:var(--accent);padding:1.5px 7px;border-radius:40px;vertical-align:middle}
+.pill.sage{background:var(--sage)}
+.pill.ink{background:var(--ink)}
+
+/* ---------- KPI row ---------- */
+.kpi{display:flex;gap:4mm;margin:4mm 0}
+.kpi div{flex:1;background:var(--sand2);border:1px solid var(--line);border-radius:3px;padding:4mm 3mm;text-align:center}
+.kpi b{display:block;font-family:'Fraunces',Georgia,serif;font-size:18pt;font-weight:600;color:var(--ink);line-height:1}
+.kpi span{font-size:7.6pt;color:var(--muted);margin-top:1.5mm;display:block;letter-spacing:.3px}
+
+/* ---------- glass utilities ---------- */
+.glass{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.30);border-radius:5mm;
+  backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  box-shadow:0 9mm 30mm rgba(0,0,0,.34), inset 0 1.2px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(255,255,255,.10)}
+.glass-dark{background:rgba(14,27,42,.42);border:1px solid rgba(255,255,255,.16);border-radius:5mm;
+  backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 8mm 26mm rgba(0,0,0,.36), inset 0 1.2px 0 rgba(255,255,255,.22)}
+
+/* ---------- COVER ---------- */
+.cover{padding:0;background:var(--ink);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cover .bg{position:absolute;inset:0;background-position:center;background-size:cover;transform:scale(1.04)}
+.cover .scrim{position:absolute;inset:0;background:linear-gradient(160deg,rgba(14,27,42,.62) 0%,rgba(14,27,42,.50) 40%,rgba(11,20,34,.86) 100%)}
+.cover .band{position:relative;flex:1;padding:22mm 22mm 0;display:flex;flex-direction:column}
+.cover .panel{position:relative;margin-top:20mm;align-self:flex-start;max-width:150mm;padding:11mm 13mm 12mm}
+.cover .kick{position:relative;font-size:8.2pt;letter-spacing:3.6px;text-transform:uppercase;color:#eebf9c;font-weight:700}
+.cover .arname{font-family:'Fraunces',Georgia,serif;font-size:15pt;color:#e7edf3;font-weight:400;letter-spacing:2px;margin-top:6mm}
+.cover h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:52pt;line-height:.98;letter-spacing:.5px;margin-top:3mm;color:#fff}
+.cover h1 em{font-style:italic;color:#eebf9c;font-weight:500}
+.cover .tagline{font-size:12pt;color:#dbe3ec;max-width:128mm;margin-top:7mm;line-height:1.5;font-weight:400}
+.cover .rule{width:38mm;height:2.6pt;background:var(--accent);margin:9mm 0 0;box-shadow:0 0 12px rgba(193,89,44,.6)}
+.cover .foot2{position:relative;margin-top:auto;border-top:1px solid rgba(255,255,255,.16);padding:8mm 22mm;display:flex;justify-content:space-between;align-items:flex-end;font-size:8.6pt;color:#c1cbd5;letter-spacing:.4px}
+.cover .foot2 b{color:#fff;font-weight:700}
+.cover .doclabel{font-family:'Fraunces',Georgia,serif;font-size:12pt;color:#fff;letter-spacing:.5px}
+.cover .dots{position:absolute;right:20mm;top:18mm;font-family:'Fraunces',Georgia,serif;font-size:12pt;color:#eebf9c;letter-spacing:2px}

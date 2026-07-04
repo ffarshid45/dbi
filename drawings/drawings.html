@@ -1,35 +1,38 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>ZILAL AL SAFA — Drawing Set</title>
 <style>
-  :root{--navy:#12294f;--ink:#1f2a37;--orange:#E8792B;--green:#5F9E4B;--dgreen:#3f7a34;
-        --sand:#efe4cf;--water:#cfe0ef;--line:#c9c9c9;--paper:#ffffff;--grid:#e7e7e7;}
+  @import url('../assets/fonts/fonts.css');
+  :root{--navy:#0E1B2A;--ink:#1c2b38;--orange:#C1592C;--green:#2F6F5E;--dgreen:#265646;
+        --sand:#F5EFE4;--water:#cfe0ef;--line:#E1D8C7;--paper:#ffffff;--grid:#e7e7e7;--muted:#6b7683;}
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:#888;font-family:"DejaVu Sans","Liberation Sans",Arial,sans-serif;color:var(--ink)}
+  html,body{background:#7d7469;font-family:'Manrope',-apple-system,Arial,sans-serif;color:var(--ink)}
   .sheet{width:841mm;height:594mm;background:var(--paper);position:relative;overflow:hidden;
-         page-break-after:always;padding:14mm 14mm 0 14mm;display:flex;flex-direction:column}
+         page-break-after:always;padding:15mm 16mm 0 16mm;display:flex;flex-direction:column}
   .sheet:last-child{page-break-after:auto}
-  .head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--navy);padding-bottom:6mm}
-  .head .t1{font-size:9mm;font-weight:800;letter-spacing:.5px;color:var(--navy)}
-  .head .t2{font-size:4.4mm;color:#5b6b88;margin-top:1.5mm}
-  .head .kbox{text-align:right;font-size:3.6mm;color:#5b6b88;line-height:1.5}
-  .head .kbox b{color:var(--navy)}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--navy);padding-bottom:6mm}
+  .head .kick{font-size:3.2mm;letter-spacing:2.4px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:2mm}
+  .head .t1{font-family:'Fraunces',Georgia,serif;font-size:10mm;font-weight:600;letter-spacing:.2px;color:var(--navy);line-height:1}
+  .head .t2{font-size:4mm;color:var(--muted);margin-top:2.5mm}
+  .head .kbox{text-align:right;font-size:3.5mm;color:var(--muted);line-height:1.55}
+  .head .kbox b{color:var(--navy);font-weight:700}
   .canvas{flex:1;display:flex;gap:8mm;padding:8mm 0}
-  .draw{flex:1;border:1px solid var(--line);position:relative;background:#fcfcfb}
-  .side{width:70mm;display:flex;flex-direction:column;gap:5mm}
-  .panel{border:1px solid var(--line);padding:5mm}
-  .panel h3{font-size:4.4mm;color:var(--navy);margin-bottom:3mm;text-transform:uppercase;letter-spacing:.6px}
-  .lg{font-size:3.5mm;line-height:1.7;color:#374151}
+  .draw{flex:1;border:1px solid var(--line);position:relative;background:#fcfaf5}
+  .side{width:72mm;display:flex;flex-direction:column;gap:5mm}
+  .panel{border:1px solid var(--line);background:#fcfaf5;padding:5mm 5.5mm;border-radius:2mm}
+  .panel h3{font-family:'Fraunces',Georgia,serif;font-size:4.6mm;color:var(--navy);font-weight:600;margin-bottom:3mm;letter-spacing:.2px}
+  .lg{font-size:3.5mm;line-height:1.7;color:#37424e}
   .lg .row{display:flex;align-items:center;gap:3mm;margin-bottom:1.6mm}
   .sw{width:6mm;height:4mm;border-radius:1mm;border:1px solid #0002;flex:none}
   .foot{height:30mm;border-top:2px solid var(--navy);display:flex;font-size:3.4mm}
-  .foot .cell{border-right:1px solid var(--line);padding:4mm 5mm;display:flex;flex-direction:column;justify-content:center}
-  .foot .cell b{color:var(--navy);font-size:3.6mm}
-  .foot .cell .big{font-size:5mm;font-weight:800;color:var(--navy)}
+  .foot .cell{border-right:1px solid var(--line);padding:4mm 5mm;display:flex;flex-direction:column;justify-content:center;gap:1mm}
+  .foot .cell b{color:var(--orange);font-size:2.9mm;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+  .foot .cell .big{font-family:'Fraunces',Georgia,serif;font-size:5.2mm;font-weight:600;color:var(--navy)}
+  .foot .cell span{color:var(--ink)}
   .foot .grow{flex:1}
   svg{width:100%;height:100%;display:block}
   .zlab{font-weight:700}
-  text{font-family:"DejaVu Sans","Liberation Sans",Arial,sans-serif}
-  .note{font-size:3.2mm;color:#6b7280;margin-top:2mm;line-height:1.5}
+  text{font-family:'Manrope',"DejaVu Sans",Arial,sans-serif}
+  .note{font-size:3.2mm;color:var(--muted);margin-top:2mm;line-height:1.5}
   table.pal{width:100%;border-collapse:collapse;font-size:3.2mm}
   table.pal td{padding:1.6mm 1mm;border-bottom:1px solid #eee;vertical-align:top}
   table.pal .bot{font-weight:700;color:var(--navy)}
@@ -39,7 +42,7 @@
 <!-- ============ SHEET 1 — MASTERPLAN ============ -->
 <div class="sheet">
   <div class="head">
-    <div><div class="t1">ZILAL AL SAFA — CONCEPT MASTERPLAN</div>
+    <div><div class="kick">Zilal Al Safa · Drawing Set</div><div class="t1">Concept Masterplan</div>
       <div class="t2">Al Safa Park 2 Redevelopment · Plot 3570616 · 15,000 m² · Dubai Municipality AI Park Design Challenge</div></div>
     <div class="kbox"><b>Drawing</b> L-101 · Masterplan<br><b>Scale</b> 1:250 @ A1 · <b>North</b> ↖ true<br><b>Rev</b> A · Concept + Preliminary</div>
   </div>
@@ -55,7 +58,7 @@
         <div class="row"><span class="sw" style="background:none;border:2px solid var(--orange)"></span>Cool Loop — jogging ≈1 km</div>
         <div class="row"><span class="sw" style="background:var(--navy);border:none"></span>Solar canopy spine (PV)</div>
         <div class="row"><span class="sw" style="background:#0a1b3d;border-radius:50%"></span>Identity gateway (×4)</div>
-        <div class="row"><span class="sw" style="background:#E8792B;transform:rotate(45deg)"></span>Comfort Brain sensor node</div>
+        <div class="row"><span class="sw" style="background:#C1592C;transform:rotate(45deg)"></span>Comfort Brain sensor node</div>
         <div class="row"><span class="sw" style="background:none;border:2px solid #2fb6a8"></span>"Every Step Counts" kinetic floor</div>
         <div class="row"><span class="sw" style="background:none;border:2px dashed #b8791f"></span>Kinetic mashrabiya canopy</div>
       </div></div>
@@ -87,7 +90,7 @@
 <!-- ============ SHEET 2 — LANDSCAPE & PLANTING ============ -->
 <div class="sheet">
   <div class="head">
-    <div><div class="t1">LANDSCAPE &amp; PLANTING STRATEGY</div>
+    <div><div class="kick">Zilal Al Safa · Drawing Set</div><div class="t1">Landscape &amp; Planting Strategy</div>
       <div class="t2">Native, climate-responsive &amp; water-wise planting · retains existing mature canopy</div></div>
     <div class="kbox"><b>Drawing</b> L-201 · Planting<br><b>Scale</b> 1:250 @ A1 · <b>North</b> ↖ true<br><b>Rev</b> A</div>
   </div>
@@ -133,7 +136,7 @@
 <!-- ============ SHEET 3 — SECTIONS ============ -->
 <div class="sheet">
   <div class="head">
-    <div><div class="t1">SECTIONS &amp; ELEVATIONS</div>
+    <div><div class="kick">Zilal Al Safa · Drawing Set</div><div class="t1">Sections &amp; Elevations</div>
       <div class="t2">Key sections through the Cool Loop and the Majlis Grove · human scale &amp; shade geometry</div></div>
     <div class="kbox"><b>Drawing</b> L-301 · Sections<br><b>Scale</b> 1:100 @ A1<br><b>Rev</b> A</div>
   </div>
@@ -154,7 +157,7 @@
 <!-- ============ SHEET 4 — CIRCULATION & ACCESSIBILITY ============ -->
 <div class="sheet">
   <div class="head">
-    <div><div class="t1">CIRCULATION &amp; ACCESSIBILITY</div>
+    <div><div class="kick">Zilal Al Safa · Drawing Set</div><div class="t1">Circulation &amp; Accessibility</div>
       <div class="t2">Step-free network · entrances · jogging circuit · mobility, drop-off &amp; parking</div></div>
     <div class="kbox"><b>Drawing</b> L-401 · Circulation<br><b>Scale</b> 1:250 @ A1 · <b>North</b> ↖ true<br><b>Rev</b> A</div>
   </div>
@@ -198,20 +201,20 @@ function defs(){return `<defs>
   <pattern id="pave" width="3" height="3" patternUnits="userSpaceOnUse">
     <rect width="3" height="3" fill="#efe9dd"/><path d="M3 0H0V3" fill="none" stroke="#e0d7c4" stroke-width="0.2"/></pattern>
   <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-    <path d="M0 0L6 3L0 6Z" fill="#12294f"/></marker>
+    <path d="M0 0L6 3L0 6Z" fill="#0E1B2A"/></marker>
 </defs>`;}
 function frameGrid(){
   return `<rect x="0" y="0" width="186" height="114" fill="#fcfcfb"/>
    <rect x="${OX}" y="${OY}" width="${W}" height="${H}" fill="url(#grid)"/>
-   <rect x="${OX}" y="${OY}" width="${W}" height="${H}" fill="none" stroke="#12294f" stroke-width="0.5"/>`;
+   <rect x="${OX}" y="${OY}" width="${W}" height="${H}" fill="none" stroke="#0E1B2A" stroke-width="0.5"/>`;
 }
 function northScale(){
   // north arrow (points up-left ~ true NW) + scale bar (0-10-20-50 m)
-  return `<g transform="translate(176,14)"><line x1="0" y1="6" x2="0" y2="-6" stroke="#12294f" stroke-width="0.6" marker-end="url(#arr)" transform="rotate(-35)"/>
-     <text x="-1.5" y="10" font-size="3.2" fill="#12294f" font-weight="700">N</text></g>
+  return `<g transform="translate(176,14)"><line x1="0" y1="6" x2="0" y2="-6" stroke="#0E1B2A" stroke-width="0.6" marker-end="url(#arr)" transform="rotate(-35)"/>
+     <text x="-1.5" y="10" font-size="3.2" fill="#0E1B2A" font-weight="700">N</text></g>
    <g transform="translate(${OX},${OY+H+9})" font-size="2.6" fill="#334">
-     <rect x="0" y="0" width="10" height="1.6" fill="#12294f"/><rect x="10" y="0" width="10" height="1.6" fill="#fff" stroke="#12294f" stroke-width="0.2"/>
-     <rect x="20" y="0" width="30" height="1.6" fill="#12294f"/><rect x="50" y="0" width="50" height="1.6" fill="#fff" stroke="#12294f" stroke-width="0.2"/>
+     <rect x="0" y="0" width="10" height="1.6" fill="#0E1B2A"/><rect x="10" y="0" width="10" height="1.6" fill="#fff" stroke="#0E1B2A" stroke-width="0.2"/>
+     <rect x="20" y="0" width="30" height="1.6" fill="#0E1B2A"/><rect x="50" y="0" width="50" height="1.6" fill="#fff" stroke="#0E1B2A" stroke-width="0.2"/>
      <text x="0" y="5">0</text><text x="18.5" y="5">20</text><text x="48.5" y="5">50</text><text x="98" y="5">100 m</text></g>`;
 }
 function edgeLabels(){
@@ -262,11 +265,11 @@ function masterplan(){
   s+=`<rect x="${OX+116}" y="${OY+7}" width="24" height="12" rx="1.5" fill="#fff2cf" stroke="#e3c96b" stroke-width="0.3"/>
       <text x="${OX+128}" y="${OY+14}" font-size="2.6" fill="#8a6d16" text-anchor="middle">Market · café</text>`;
   // Solar canopy spine (diagonal PV band)
-  s+=`<g stroke="#12294f" stroke-width="1.4" opacity="0.8">
+  s+=`<g stroke="#0E1B2A" stroke-width="1.4" opacity="0.8">
       <line x1="${OX+118}" y1="${OY+26}" x2="${OX+150}" y2="${OY+34}"/>
       <line x1="${OX+116}" y1="${OY+32}" x2="${OX+150}" y2="${OY+40}"/>
       <line x1="${OX+118}" y1="${OY+38}" x2="${OX+148}" y2="${OY+46}"/></g>
-      <text x="${OX+134}" y="${OY+24}" font-size="2.8" fill="#12294f" text-anchor="middle" class="zlab">Solar canopy spine</text>`;
+      <text x="${OX+134}" y="${OY+24}" font-size="2.8" fill="#0E1B2A" text-anchor="middle" class="zlab">Solar canopy spine</text>`;
   // Sponge Garden (SE strip)
   s+=`<path d="M${OX+112} ${OY+H-24} q26 -5 52 2 v22 h-52 z" fill="url(#hatchW)" stroke="#8fb4d8" stroke-width="0.4"/>
       <text x="${OX+140}" y="${OY+H-3}" font-size="3" fill="#2b567f" text-anchor="middle" class="zlab">SPONGE GARDEN</text>`;
@@ -276,7 +279,7 @@ function masterplan(){
   // Dog run (SW corner outside sport)
   s+=`<rect x="${OX+3}" y="${OY+H-9}" width="0" height="0"/>`;
   // Cool loop + gateways + labels
-  s+=coolLoopPath('#E8792B',3.2)+coolLoopPath('#fff',0.5,'1.5 2');
+  s+=coolLoopPath('#C1592C',3.2)+coolLoopPath('#fff',0.5,'1.5 2');
   s+=`<text x="${OX+92}" y="${LY-1.5}" font-size="2.8" fill="#b4611c" text-anchor="middle" class="zlab">THE COOL LOOP · shaded jogging circuit ≈ 1 km</text>`;
   // ---- Signature innovation callouts ----
   // Kinetic mashrabiya canopy over the Majlis Grove (zig-zag screen motif)
@@ -289,7 +292,7 @@ function masterplan(){
       <text x="${OX+83}" y="${LY+LH-1.6}" font-size="2.4" fill="#178b80" text-anchor="middle" class="zlab">Kinetic floor — "Every Step Counts"</text>`;
   // Comfort Brain sensor nodes (small diamonds distributed across zones)
   const cb=[[OX+92,OY+42],[OX+24,OY+H-19],[OX+134,OY+34],[OX+141,OY+H-12],[OX+92,OY+15],[OX+30,OY+16],[OX+150,OY+12]];
-  s+=`<g fill="#E8792B">`+cb.map(p=>`<rect x="${p[0]-0.9}" y="${p[1]-0.9}" width="1.8" height="1.8" transform="rotate(45 ${p[0]} ${p[1]})"/>`).join('')+`</g>`;
+  s+=`<g fill="#C1592C">`+cb.map(p=>`<rect x="${p[0]-0.9}" y="${p[1]-0.9}" width="1.8" height="1.8" transform="rotate(45 ${p[0]} ${p[1]})"/>`).join('')+`</g>`;
   s+=gateways()+edgeLabels()+northScale();
   return s+`</svg>`;
 }
@@ -315,7 +318,7 @@ function planting(){
   s+=trees(nw);
   // palm avenue along entry
   for(let i=0;i<8;i++){s+=tree(OX+72+i*5.5,OY+6,1.6,'#2f8f5a');}
-  s+=coolLoopPath('#E8792B',1.2,'2 1.5');
+  s+=coolLoopPath('#C1592C',1.2,'2 1.5');
   s+=edgeLabels()+northScale();
   s+=`<g font-size="3" fill="#245018" font-weight="700">
       <text x="${OX+92}" y="${OY+43}">Grove planting</text>
@@ -335,12 +338,12 @@ function sectionA(){
   s+=`<line x1="6" y1="30" x2="114" y2="30" stroke="#000" stroke-width="0.2" stroke-dasharray="1 1"/>
       <text x="4" y="30" font-size="2" fill="#555" text-anchor="end">±0.00</text>`;
   // pergola posts + PV canopy over track (track from x=40..78)
-  s+=`<g stroke="#12294f" stroke-width="0.9" fill="none">
+  s+=`<g stroke="#0E1B2A" stroke-width="0.9" fill="none">
       <line x1="42" y1="30" x2="42" y2="12"/><line x1="76" y1="30" x2="76" y2="12"/>
       <line x1="59" y1="30" x2="59" y2="12"/></g>`;
   // PV canopy (tilted)
   s+=`<polygon points="38,12 80,9 80,11 38,14" fill="#1f3b63"/>
-      <text x="59" y="19" font-size="2.2" fill="#12294f" text-anchor="middle">Solar-pergola canopy (PV) — full shade at 15:00</text>`;
+      <text x="59" y="19" font-size="2.2" fill="#0E1B2A" text-anchor="middle">Solar-pergola canopy (PV) — full shade at 15:00</text>`;
   // track
   s+=`<rect x="40" y="29" width="38" height="1.4" fill="#b4552a"/><text x="59" y="34" font-size="2" fill="#7a3c1e" text-anchor="middle">Shaded jogging / walking track (4 m)</text>`;
   // people (1.7m ~ scale: 1 unit=1m? here 40 tall for ~12m -> use ~ scale) draw simple figures
@@ -353,7 +356,7 @@ function sectionA(){
   s+=`<path d="M10 30 q4 3 8 0" fill="none" stroke="#8fb4d8" stroke-width="0.8"/><text x="14" y="35" font-size="1.9" fill="#2b567f" text-anchor="middle">bioswale</text>`;
   // dimensions
   s+=`<g stroke="#888" stroke-width="0.2"><line x1="40" y1="37" x2="78" y2="37"/><line x1="40" y1="36" x2="40" y2="38"/><line x1="78" y1="36" x2="78" y2="38"/></g><text x="59" y="39.3" font-size="1.9" fill="#555" text-anchor="middle">4.0 m track + 2×2 m verge</text>`;
-  s+=`<text x="8" y="6" font-size="3" fill="#12294f" font-weight="800">SECTION A–A · Cool Loop &amp; solar pergola</text><text x="8" y="9.5" font-size="2" fill="#777">Scale 1:100 @ A1</text>`;
+  s+=`<text x="8" y="6" font-size="3" fill="#0E1B2A" font-weight="800">SECTION A–A · Cool Loop &amp; solar pergola</text><text x="8" y="9.5" font-size="2" fill="#777">Scale 1:100 @ A1</text>`;
   return s+`</svg>`;
 }
 function sectionB(){
@@ -361,9 +364,9 @@ function sectionB(){
   s+=`<line x1="6" y1="30" x2="114" y2="30" stroke="#6b5a3a" stroke-width="0.8"/><rect x="6" y="30" width="108" height="8" fill="#efe4cf"/>`;
   s+=`<text x="4" y="30" font-size="2" fill="#555" text-anchor="end">±0.00</text>`;
   // majlis shade structure (fabric canopy) center
-  s+=`<g stroke="#12294f" stroke-width="0.9" fill="none"><line x1="48" y1="30" x2="48" y2="14"/><line x1="72" y1="30" x2="72" y2="14"/></g>
+  s+=`<g stroke="#0E1B2A" stroke-width="0.9" fill="none"><line x1="48" y1="30" x2="48" y2="14"/><line x1="72" y1="30" x2="72" y2="14"/></g>
       <path d="M44 14 q16 -6 32 0 q-16 4 -32 0" fill="#f4efe6" stroke="#c9b48a" stroke-width="0.4"/>
-      <text x="60" y="10.5" font-size="2.2" fill="#12294f" text-anchor="middle">Fabric shade canopy over majlis</text>`;
+      <text x="60" y="10.5" font-size="2.2" fill="#0E1B2A" text-anchor="middle">Fabric shade canopy over majlis</text>`;
   // majlis seating platform
   s+=`<rect x="46" y="28.5" width="28" height="1.5" fill="#cdb98f"/><text x="60" y="34" font-size="2" fill="#6b5a2f" text-anchor="middle">Shaded majlis seating</text>`;
   function person(x){return `<g stroke="#333" stroke-width="0.5" fill="none"><circle cx="${x}" cy="25.5" r="0.9" fill="#333" stroke="none"/><line x1="${x}" y1="26.4" x2="${x}" y2="29.5"/><line x1="${x}" y1="27.4" x2="${x-1}" y2="28.8"/><line x1="${x}" y1="27.4" x2="${x+1}" y2="28.8"/></g>`;}
@@ -372,7 +375,7 @@ function sectionB(){
   s+=`<g fill="#4f8a3e"><circle cx="22" cy="18" r="8"/><circle cx="96" cy="20" r="7"/><circle cx="86" cy="22" r="5"/></g>
       <line x1="22" y1="26" x2="22" y2="30" stroke="#6b4a2a" stroke-width="0.8"/><line x1="96" y1="27" x2="96" y2="30" stroke="#6b4a2a" stroke-width="0.8"/>`;
   s+=`<text x="22" y="35" font-size="1.9" fill="#2c5a20" text-anchor="middle">Ghaf grove</text><text x="96" y="35" font-size="1.9" fill="#2c5a20" text-anchor="middle">Sidr</text>`;
-  s+=`<text x="8" y="6" font-size="3" fill="#12294f" font-weight="800">SECTION B–B · Majlis Grove (social core)</text><text x="8" y="9.5" font-size="2" fill="#777">Scale 1:100 @ A1</text>`;
+  s+=`<text x="8" y="6" font-size="3" fill="#0E1B2A" font-weight="800">SECTION B–B · Majlis Grove (social core)</text><text x="8" y="9.5" font-size="2" fill="#777">Scale 1:100 @ A1</text>`;
   return s+`</svg>`;
 }
 
@@ -380,7 +383,7 @@ function sectionB(){
 function circulation(){
   let s=svgOpen()+defs()+frameGrid();
   // jogging loop
-  s+=coolLoopPath('#E8792B',2.2);
+  s+=coolLoopPath('#C1592C',2.2);
   // primary promenade (cross axes, dashed)
   s+=`<g stroke="#2b567f" stroke-width="1.4" stroke-dasharray="3 2" fill="none">
       <path d="M${OX+W*0.42} ${OY} L${OX+92} ${OY+42} L${OX+W*0.6} ${OY+H}"/>
