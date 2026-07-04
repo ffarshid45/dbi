@@ -55,6 +55,9 @@
         <div class="row"><span class="sw" style="background:none;border:2px solid var(--orange)"></span>Cool Loop — jogging ≈1 km</div>
         <div class="row"><span class="sw" style="background:var(--navy);border:none"></span>Solar canopy spine (PV)</div>
         <div class="row"><span class="sw" style="background:#0a1b3d;border-radius:50%"></span>Identity gateway (×4)</div>
+        <div class="row"><span class="sw" style="background:#E8792B;transform:rotate(45deg)"></span>Comfort Brain sensor node</div>
+        <div class="row"><span class="sw" style="background:none;border:2px solid #2fb6a8"></span>"Every Step Counts" kinetic floor</div>
+        <div class="row"><span class="sw" style="background:none;border:2px dashed #b8791f"></span>Kinetic mashrabiya canopy</div>
       </div></div>
       <div class="panel"><h3>Programme areas (approx.)</h3><div class="lg">
         Total site <b>15,000 m²</b><br>
@@ -66,7 +69,7 @@
         Leasable (commercial) ≈ 15%
       </div></div>
       <div class="panel" style="flex:1"><h3>Design intent</h3>
-        <div class="lg">A shaded Cool Loop wraps the whole park; the quiet Majlis Grove sits in the cool core; sport is retained at the SW end; the Sponge Garden lines the school edge. One identity gateway addresses each neighbour.</div>
+        <div class="lg">A shaded Cool Loop wraps the whole park; the quiet Majlis Grove sits in the cool core under a sun-tracking <b>kinetic mashrabiya</b>; sport is retained at the SW end; the Sponge Garden lines the school edge. A network of <b>Comfort Brain</b> sensor nodes and two <b>"Every Step Counts"</b> kinetic-floor zones (court + a Cool-Loop stretch) make the park interactive and self-tuning. One identity gateway addresses each neighbour.</div>
         <div class="note">Concept-level to-scale layout. Areas indicative; to be coordinated with survey &amp; services.</div>
       </div>
     </div>
@@ -275,6 +278,18 @@ function masterplan(){
   // Cool loop + gateways + labels
   s+=coolLoopPath('#E8792B',3.2)+coolLoopPath('#fff',0.5,'1.5 2');
   s+=`<text x="${OX+92}" y="${LY-1.5}" font-size="2.8" fill="#b4611c" text-anchor="middle" class="zlab">THE COOL LOOP · shaded jogging circuit ≈ 1 km</text>`;
+  // ---- Signature innovation callouts ----
+  // Kinetic mashrabiya canopy over the Majlis Grove (zig-zag screen motif)
+  s+=`<g opacity="0.9"><path d="M${OX+79} ${OY+29} l4.3 -2.4 l4.3 2.4 l4.3 -2.4 l4.3 2.4 l4.3 -2.4 l4.3 2.4" fill="none" stroke="#b8791f" stroke-width="0.5"/></g>
+      <text x="${OX+92}" y="${OY+26.5}" font-size="2.4" fill="#b8791f" text-anchor="middle" class="zlab">Kinetic mashrabiya canopy</text>`;
+  // "Every Step Counts" kinetic floor — under the retained court
+  s+=`<rect x="${OX+6}" y="${OY+H-52}" width="24" height="15" rx="0.6" fill="none" stroke="#2fb6a8" stroke-width="0.7" stroke-dasharray="1.2 1"/>`;
+  // "Every Step Counts" kinetic gallery — a signature stretch of the Cool Loop (south run)
+  s+=`<line x1="${OX+58}" y1="${LY+LH}" x2="${OX+108}" y2="${LY+LH}" stroke="#2fb6a8" stroke-width="3" opacity="0.9"/>
+      <text x="${OX+83}" y="${LY+LH-1.6}" font-size="2.4" fill="#178b80" text-anchor="middle" class="zlab">Kinetic floor — "Every Step Counts"</text>`;
+  // Comfort Brain sensor nodes (small diamonds distributed across zones)
+  const cb=[[OX+92,OY+42],[OX+24,OY+H-19],[OX+134,OY+34],[OX+141,OY+H-12],[OX+92,OY+15],[OX+30,OY+16],[OX+150,OY+12]];
+  s+=`<g fill="#E8792B">`+cb.map(p=>`<rect x="${p[0]-0.9}" y="${p[1]-0.9}" width="1.8" height="1.8" transform="rotate(45 ${p[0]} ${p[1]})"/>`).join('')+`</g>`;
   s+=gateways()+edgeLabels()+northScale();
   return s+`</svg>`;
 }
